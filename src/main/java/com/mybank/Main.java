@@ -3,7 +3,7 @@ import javafx.application.Platform;
 
 public class Main {
     public static void main(String[] args) {
-        Debug.trace("Main::main");
+        Debug.trace("Main::Starting Program");
         Platform.setImplicitExit(true);
         App.main(args);
     }
