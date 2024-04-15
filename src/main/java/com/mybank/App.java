@@ -12,7 +12,7 @@ public class App extends Application {
         // set up debugging and print initial debugging message
         Debug.set(true);
         Debug.trace("atm starting");
-        Debug.trace("Main::start");
+        Debug.trace("App::start");
 
         View view = new View();
 
