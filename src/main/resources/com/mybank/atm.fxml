@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" style="-fx-background-color: lightblue;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane layoutX="15.0" layoutY="15.0" prefHeight="380.0" prefWidth="695.0" style="-fx-border-color: black; -fx-background-color: white;">
+         <children>
+            <GridPane layoutX="10.0" layoutY="12.0" prefHeight="355.0" prefWidth="158.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Button id="screen-buttons" fx:id="depositBtn" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="80.0" prefWidth="150.0" style="-fx-text-fill: white;" stylesheets="@atm.css" text="DEPOSIT" GridPane.halignment="LEFT" GridPane.valignment="TOP">
+                     <font>
+                        <Font name="System Bold" size="21.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button id="screen-buttons" fx:id="balanceBtn" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="80.0" prefWidth="150.0" style="-fx-text-fill: white;" stylesheets="@atm.css" text="BALANCE" GridPane.halignment="LEFT" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="System Bold" size="21.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button id="screen-buttons" fx:id="statementBtn" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="80.0" prefWidth="150.0" style="-fx-text-fill: white;" stylesheets="@atm.css" text="STATEMENT" textFill="WHITE" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
+                     <font>
+                        <Font name="System Bold" size="21.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+               </children>
+            </GridPane>
+            <GridPane layoutX="525.0" layoutY="12.0" prefHeight="355.0" prefWidth="158.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Button id="screen-buttons" fx:id="withdrawBtn" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="80.0" prefWidth="150.0" style="-fx-text-fill: white;" stylesheets="@atm.css" text="WITHDRAW" GridPane.halignment="RIGHT" GridPane.valignment="TOP">
+                     <font>
+                        <Font name="System Bold" size="21.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button id="screen-buttons" fx:id="transferBtn" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="80.0" prefWidth="150.0" style="-fx-text-fill: white;" stylesheets="@atm.css" text="TRANSFER" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="System Bold" size="21.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button id="screen-buttons" fx:id="changePassBtn" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="80.0" prefWidth="150.0" style="-fx-text-fill: white;" stylesheets="@atm.css" text="ACCOUNT" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
+                     <font>
+                        <Font name="System Bold" size="21.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+               </children>
+            </GridPane>
+            <AnchorPane layoutX="176.0" layoutY="14.0" prefHeight="355.0" prefWidth="341.0">
+               <children>
+                  <TextField fx:id="message" alignment="CENTER" layoutY="73.0" prefHeight="93.0" prefWidth="341.0">
+                     <font>
+                        <Font size="28.0" />
+                     </font>
+                  </TextField>
+                  <TextArea fx:id="reply" editable="false" layoutY="178.0" prefHeight="175.0" prefWidth="341.0" promptText="Please choose from one of the six options." wrapText="true" />
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="15.0" layoutY="405.0" prefHeight="380.0" prefWidth="695.0" style="-fx-border-color: black; -fx-background-color: white;">
+         <children>
+            <GridPane fx:id="keypadGrid" layoutX="15.0" layoutY="12.0" prefHeight="355.0" prefWidth="475.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Button id="keypad-button" fx:id="oneBtn" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="80.0" prefWidth="150.0" styleClass="buttons" stylesheets="@atm.css" text="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="36.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button id="keypad-button" fx:id="twoBtn" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="80.0" prefWidth="150.0" styleClass="buttons" stylesheets="@atm.css" text="2" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="36.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button id="keypad-button" fx:id="fourBtn" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="80.0" prefWidth="150.0" styleClass="buttons" stylesheets="@atm.css" text="4" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="36.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button id="keypad-button" fx:id="fiveBtn" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="80.0" prefWidth="150.0" styleClass="buttons" stylesheets="@atm.css" text="5" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="System Bold" size="36.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button id="keypad-button" fx:id="threeBtn" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="80.0" prefWidth="150.0" styleClass="buttons" stylesheets="@atm.css" text="3" GridPane.columnIndex="2" GridPane.halignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="36.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button id="keypad-button" fx:id="sevenBtn" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="80.0" prefWidth="150.0" styleClass="buttons" stylesheets="@atm.css" text="7" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="36.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button id="keypad-button" fx:id="eightBtn" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="80.0" prefWidth="150.0" styleClass="buttons" stylesheets="@atm.css" text="8" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                     <font>
+                        <Font name="System Bold" size="36.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button id="keypad-button" fx:id="sixBtn" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="80.0" prefWidth="150.0" styleClass="buttons" stylesheets="@atm.css" text="6" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="System Bold" size="36.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button id="keypad-button" fx:id="nineBtn" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="80.0" prefWidth="150.0" styleClass="buttons" stylesheets="@atm.css" text="9" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                     <font>
+                        <Font name="System Bold" size="36.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button id="keypad-button" fx:id="blankBtn" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="80.0" prefWidth="150.0" styleClass="buttons" stylesheets="@atm.css" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button id="keypad-button" fx:id="zeroBtn" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="80.0" prefWidth="150.0" styleClass="buttons" stylesheets="@atm.css" text="0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+                     <font>
+                        <Font name="System Bold" size="36.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button id="keypad-button" fx:id="zeroTimesTwoBtn" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="80.0" prefWidth="150.0" styleClass="buttons" stylesheets="@atm.css" text="00" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+                     <font>
+                        <Font name="System Bold" size="36.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+               </children>
+            </GridPane>
+            <GridPane fx:id="keypadFunctionGrid" layoutX="525.0" layoutY="12.0" prefHeight="355.0" prefWidth="158.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Button id="enter-button" fx:id="enterBtn" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="80.0" prefWidth="150.0" style="-fx-text-fill: white;" stylesheets="@atm.css" text="ENTER" GridPane.halignment="CENTER">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button id="clear-button" fx:id="clearBtn" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="80.0" prefWidth="150.0" style="-fx-text-fill: white;" stylesheets="@atm.css" text="CLEAR" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="System Bold Italic" size="24.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button id="cancel-button" fx:id="cancelBtn" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="80.0" prefWidth="150.0" stylesheets="@atm.css" text="CANCEL" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button id="logout-button" fx:id="logoutBtn" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="80.0" prefWidth="150.0" stylesheets="@atm.css" text="LOGOUT" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+               </children>
+            </GridPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="720.0" layoutY="585.0" prefHeight="200.0" prefWidth="270.0" style="-fx-border-color: black; -fx-background-color: white;">
+         <children>
+            <Label fx:id="timeLabel" layoutX="6.0" layoutY="177.0" text="14:00">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="dateLabel" layoutX="206.0" layoutY="176.0" text="21/03/24">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="60.0" layoutY="10.0" text="Bank of England ATM">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="60.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@vecteezy_bank-business-solid-black-icon_17502959-removebg-preview.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="720.0" layoutY="15.0" prefHeight="560.0" prefWidth="270.0" style="-fx-border-color: black; -fx-background-color: white;">
+         <children>
+            <Label layoutX="7.0" layoutY="235.0" prefHeight="321.0" prefWidth="255.0" text="Protect Your PIN:&#10;&#10;1. Keep your PIN confidential. Never share it with anyone, not even bank staff.&#10;2. Avoid using easily guessable PINs like birthdays or consecutive numbers.&#10;3. Shield the keypad when entering your PIN to prevent others from seeing it.&#10;&#10;For assistance or concerns, contact our Customer Service Team:&#10;support@bank.com&#10;We're here to help!" wrapText="true">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="welcomeLabel" alignment="TOP_LEFT" layoutX="7.0" layoutY="6.0" prefHeight="224.0" prefWidth="257.0" text="Welcome, {name}. -TODO&#10;&#10;We're delighted to serve you today. Whether you're here to withdraw cash, check your balance, or perform other banking transactions, we're here to make your experience smooth and convenient." wrapText="true">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

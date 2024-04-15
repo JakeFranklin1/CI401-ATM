@@ -1,0 +1,72 @@
+#keypad-button {
+    -fx-color: lightgray;
+    cursor: pointer; 
+}
+#keypad-button:hover {
+    -fx-color: darkgray; 
+}
+
+#keypad-button:pressed {
+    -fx-color: lightgray; 
+}
+
+#screen-buttons {
+    -fx-color: gray
+}
+
+#screen-buttons:hover {
+    -fx-color: rgb(162, 162, 162);
+}
+
+#screen-buttons:pressed {
+    -fx-color: gray;
+}
+
+#enter-button {
+    -fx-color: green;
+}
+
+
+#enter-button:hover {
+    -fx-color: rgb(1, 96, 1);
+}
+
+#enter-button:pressed {
+    -fx-color: green;
+}
+
+#cancel-button {
+    -fx-color: red;
+}
+
+#cancel-button:hover {
+    -fx-color: rgb(182, 0, 0);
+}
+
+#cancel-button:pressed {
+    -fx-color: red;
+}
+
+#clear-button {
+    -fx-color: orange;
+}
+
+#clear-button:hover {
+    -fx-color: rgb(184, 120, 0);
+}
+
+#clear-button:pressed {
+    -fx-color: orange;
+}
+
+#logout-button {
+    -fx-color: lightgray;
+}
+
+#logout-button:hover {
+    -fx-color: darkgray;
+}
+
+#logout-button:pressed {
+    -fx-color: lightgray;
+}
