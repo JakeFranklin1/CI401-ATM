@@ -7,8 +7,8 @@ public class Bank {
     int maxAccounts = 10; // maximum number of accounts the bank can hold
     List<BankAccount> accounts = new ArrayList<>(); // list to hold the bank accounts
     BankAccount account = null; // currently logged in acccount ('null' if no-one is logged in)
-    String accountsFile = "src/main/resources/com/mybank/accounts.csv"; // CSV file to store accounts
-    String transactionsFile = "src/main/resources/com/mybank/transaction_history.csv"; // CSV file to store accounts
+    String accountsFile = "CSV/accounts.csv"; // CSV file to store accounts
+    String transactionsFile = "CSV/transaction_history.csv"; // CSV file to store accounts
 
     public Bank() {
         Debug.trace("Bank::<constructor>");
@@ -38,16 +38,16 @@ public class Bank {
                 // Create the appropriate account type based on the accountType
 
                 switch (accountType) {
-                case "overdraft":
-                    int overdraftLimit = Integer.parseInt(values[4]);
-                    makeOverdraftBankAccount(accNumber, accPasswd, balance, overdraftLimit);
-                    break;
-                case "limited":
-                    makeLimitedWithdrawalBankAccount(accNumber, accPasswd, balance);
-                    break;
-                default:
-                    addBankAccount(accNumber, accPasswd, balance);
-                    break;
+                    case "overdraft":
+                        int overdraftLimit = Integer.parseInt(values[4]);
+                        makeOverdraftBankAccount(accNumber, accPasswd, balance, overdraftLimit);
+                        break;
+                    case "limited":
+                        makeLimitedWithdrawalBankAccount(accNumber, accPasswd, balance);
+                        break;
+                    default:
+                        addBankAccount(accNumber, accPasswd, balance);
+                        break;
                 }
             }
         } catch (IOException e) {
@@ -95,7 +95,8 @@ public class Bank {
                 String csvLine = String.format("%d,%s,%d,%d\n", accNumber, transactionType, amount, newBalance);
                 // Append the transaction to the file
                 csvWriter.append(csvLine);
-                // Flush the writer to ensure the data is written to the file and not stored in memory
+                // Flush the writer to ensure the data is written to the file and not stored in
+                // memory
                 csvWriter.flush();
             }
         } catch (IOException e) {
@@ -213,11 +214,12 @@ public class Bank {
         // Check if a user is logged in
         if (loggedIn()) {
             // Log the transfer details
-            Debug.trace("Bank::transfer: Transferring " + amount + " from " + sourceAccNumber + " to " + targetAccNumber);
+            Debug.trace(
+                    "Bank::transfer: Transferring " + amount + " from " + sourceAccNumber + " to " + targetAccNumber);
             // Initialize source and target account objects
             BankAccount sourceAccount = null;
             BankAccount targetAccount = null;
-            
+
             // Iterate over all accounts to find the source and target accounts
             for (BankAccount acc : accounts) {
                 if (acc != null) {
@@ -238,7 +240,7 @@ public class Bank {
                 if (sourceAccount.withdraw(amount)) {
                     // If withdrawal is successful, deposit the amount to the target account
                     targetAccount.deposit(amount);
-                    
+
                     // Save the state of all accounts, log the transactions for both accounts
                     saveAccounts();
                     logTransaction(sourceAccount.accNumber, "transfer", amount, sourceAccount.getBalance());

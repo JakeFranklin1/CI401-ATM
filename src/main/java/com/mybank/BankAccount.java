@@ -51,7 +51,7 @@ public class BankAccount {
     public String getStatement() {
         Debug.trace("LocalBank::statement");
         List<String> lastFiveLines = new ArrayList<>();
-        try (BufferedReader br = new BufferedReader(new FileReader("src/main/resources/com/mybank/transaction_history.csv"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader("CSV/transaction_history.csv"))) {
             String line;
             boolean isFirstLine = true; // Flag to skip the header line
             while ((line = br.readLine()) != null) {
