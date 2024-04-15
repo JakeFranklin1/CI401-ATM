@@ -18,46 +18,52 @@ public class Bank {
     // Load accounts from CSV file
     private void loadAccounts() {
         Debug.trace("Bank::loadAccounts: Loading accounts from file");
-        try (BufferedReader br = new BufferedReader(new FileReader(accountsFile))) {
-            // Read the file line by line
-            String line;
-            boolean isFirstLine = true; // Flag to skip the header line
+        String homeDirectory = System.getProperty("user.home");
+        File file = new File(homeDirectory, "accounts.csv");
+        if (file.exists()) {
+            try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+                // Read the file line by line
+                String line;
+                boolean isFirstLine = true; // Flag to skip the header line
 
-            while ((line = br.readLine()) != null) {
-                if (isFirstLine) {
-                    isFirstLine = false;
-                    continue; // Skip the header line
+                while ((line = br.readLine()) != null) {
+                    if (isFirstLine) {
+                        isFirstLine = false;
+                        continue; // Skip the header line
+                    }
+                    // Associate the given values with the account fields
+                    String[] values = line.split(",");
+                    int accNumber = Integer.parseInt(values[0]);
+                    int accPasswd = Integer.parseInt(values[1]);
+                    int balance = Integer.parseInt(values[2]);
+                    String accountType = values[3];
+
+                    // Create the appropriate account type based on the accountType
+
+                    switch (accountType) {
+                        case "overdraft":
+                            int overdraftLimit = Integer.parseInt(values[4]);
+                            makeOverdraftBankAccount(accNumber, accPasswd, balance, overdraftLimit);
+                            break;
+                        case "limited":
+                            makeLimitedWithdrawalBankAccount(accNumber, accPasswd, balance);
+                            break;
+                        default:
+                            addBankAccount(accNumber, accPasswd, balance);
+                            break;
+                    }
                 }
-                // Associate the given values with the account fields
-                String[] values = line.split(",");
-                int accNumber = Integer.parseInt(values[0]);
-                int accPasswd = Integer.parseInt(values[1]);
-                int balance = Integer.parseInt(values[2]);
-                String accountType = values[3];
-
-                // Create the appropriate account type based on the accountType
-
-                switch (accountType) {
-                case "overdraft":
-                    int overdraftLimit = Integer.parseInt(values[4]);
-                    makeOverdraftBankAccount(accNumber, accPasswd, balance, overdraftLimit);
-                    break;
-                case "limited":
-                    makeLimitedWithdrawalBankAccount(accNumber, accPasswd, balance);
-                    break;
-                default:
-                    addBankAccount(accNumber, accPasswd, balance);
-                    break;
-                }
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-        } catch (IOException e) {
-            e.printStackTrace();
         }
     }
 
     // Save accounts to CSV file
     private void saveAccounts() {
-        try (PrintWriter pw = new PrintWriter(new FileWriter(accountsFile))) {
+        String homeDirectory = System.getProperty("user.home");
+        File file = new File(homeDirectory, "accounts.csv");
+        try (PrintWriter pw = new PrintWriter(new FileWriter(file))) {
             String accountType = "";
             String extraInfo = "";
 
@@ -83,7 +89,8 @@ public class Bank {
     public void logTransaction(int accNumber, String transactionType, int amount, int newBalance) {
         try {
             Debug.trace("Bank::logTransaction: Logging transaction for account %d", accNumber);
-            File file = new File(transactionsFile);
+            String homeDirectory = System.getProperty("user.home");
+            File file = new File(homeDirectory, "transaction_history.csv");
             boolean isNewFile = file.createNewFile(); // This will create the file if it does not exist and return true
             // Open the file in append mode
             try (FileWriter csvWriter = new FileWriter(file, true)) {
@@ -213,11 +220,12 @@ public class Bank {
         // Check if a user is logged in
         if (loggedIn()) {
             // Log the transfer details
-            Debug.trace("Bank::transfer: Transferring " + amount + " from " + sourceAccNumber + " to " + targetAccNumber);
+            Debug.trace(
+                    "Bank::transfer: Transferring " + amount + " from " + sourceAccNumber + " to " + targetAccNumber);
             // Initialize source and target account objects
             BankAccount sourceAccount = null;
             BankAccount targetAccount = null;
-            
+
             // Iterate over all accounts to find the source and target accounts
             for (BankAccount acc : accounts) {
                 if (acc != null) {
@@ -238,7 +246,7 @@ public class Bank {
                 if (sourceAccount.withdraw(amount)) {
                     // If withdrawal is successful, deposit the amount to the target account
                     targetAccount.deposit(amount);
-                    
+
                     // Save the state of all accounts, log the transactions for both accounts
                     saveAccounts();
                     logTransaction(sourceAccount.accNumber, "transfer", amount, sourceAccount.getBalance());
