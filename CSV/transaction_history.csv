@@ -184,3 +184,13 @@ accNumber,transactionType,amount,balance
 3,withdraw,3,105
 3,withdraw,36,72
 3,deposit,9000,9072
+3,withdraw,36,9036
+3,transfer,506,8530
+1,transfer,506,5658
+3,transfer,8000,530
+1,transfer,8000,13658
+1,transfer,13000,658
+3,transfer,13000,13530
+4,withdraw,3,404
+4,withdraw,3,401
+4,withdraw,3,398

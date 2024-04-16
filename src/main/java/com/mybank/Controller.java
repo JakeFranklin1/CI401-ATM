@@ -128,9 +128,9 @@ public class Controller {
 
     public void showAccountManagementWindow() {
         try {
-            String fxmlFile = "/main/resources/scenes/account-without-overdraft.fxml";
+            String fxmlFile = "/com/mybank/account-without-overdraft.fxml";
             if (model.getCurrentAccount() instanceof OverdraftBankAccount) {
-                fxmlFile = "/main/resources/scenes/account-with-overdraft.fxml";
+                fxmlFile = "/com/mybank/account-with-overdraft.fxml";
             }
 
             // Load the FXML file
