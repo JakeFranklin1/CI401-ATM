@@ -194,3 +194,6 @@ accNumber,transactionType,amount,balance
 4,withdraw,3,404
 4,withdraw,3,401
 4,withdraw,3,398
+3,withdraw,35,13495
+3,withdraw,3000,10495
+3,deposit,3500,13995
