@@ -16,7 +16,7 @@
          <children>
             <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="27.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../images/vecteezy_bank-business-solid-black-icon_17502959-removebg-preview.png" />
+                  <Image url="@vecteezy_bank-business-solid-black-icon_17502959-removebg-preview.png" />
                </image>
             </ImageView>
             <Label layoutX="10.0" layoutY="260.0" prefHeight="109.0" prefWidth="151.0" text="If you have any issues with the bank, our Customer Service team is around 24/7 to help." wrapText="true" />
@@ -27,7 +27,7 @@
       <PasswordField fx:id="currentPasswordField" alignment="CENTER" layoutX="225.0" layoutY="104.0" prefHeight="26.0" prefWidth="350.0" promptText="Current Password" />
       <PasswordField fx:id="newPasswordField" alignment="CENTER" layoutX="225.0" layoutY="163.0" prefHeight="26.0" prefWidth="350.0" promptText="New Password" />
       <PasswordField fx:id="confirmPasswordField" alignment="CENTER" layoutX="225.0" layoutY="223.0" prefHeight="26.0" prefWidth="350.0" promptText="Confirm New Password" />
-      <Button fx:id="changePasswordButton" onAction="#handleButtonAction" defaultButton="true" layoutX="225.0" layoutY="259.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="350.0" stylesheets="@../css/login.css" text="Change Password">
+      <Button fx:id="changePasswordButton" onAction="#handleButtonAction" defaultButton="true" layoutX="225.0" layoutY="259.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="350.0" stylesheets="@login.css" text="Change Password">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
@@ -41,7 +41,7 @@
       </Label>
       <TextField fx:id="changeOverdraft" alignment="CENTER" layoutX="225.0" layoutY="333.0" prefHeight="26.0" prefWidth="350.0" promptText="Change Overdraft" />
       <Label layoutX="225.0" layoutY="305.0" text="Change Overdraft" />
-      <Button fx:id="changeOverdraftButton" onAction="#handleButtonAction" defaultButton="false" layoutX="225.0" layoutY="366.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="350.0" stylesheets="@../css/login.css" text="Change Overdraft">
+      <Button fx:id="changeOverdraftButton" onAction="#handleButtonAction" defaultButton="false" layoutX="225.0" layoutY="366.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="350.0" stylesheets="@login.css" text="Change Overdraft">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
