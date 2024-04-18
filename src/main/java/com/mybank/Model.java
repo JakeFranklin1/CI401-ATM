@@ -1,6 +1,13 @@
 package com.mybank;
 
-// This class represents the Model in the Model-View-Controller pattern.
+/**
+ * This class represents the Model in the Model-View-Controller pattern.
+ * It is responsible for managing the data and the business logic of the
+ * application.
+ * The Model communicates with the Bank object to perform banking operations.
+ * The Model also communicates with the Controller and the View to update the
+ * user interface.
+ */
 
 public class Model {
 
@@ -9,11 +16,20 @@ public class Model {
     // The View instance associated with this Model.
     public View view;
 
+    /**
+     * Sets the controller for this model.
+     * 
+     * @param controller The controller to be set.
+     */
     public void setController(Controller controller) {
         this.controller = controller;
     }
 
-    // Method to set the View instance
+    /**
+     * Sets the view for this model.
+     * 
+     * @param view The view to be set.
+     */
     public void setView(View view) {
         this.view = view;
     }
@@ -27,10 +43,10 @@ public class Model {
     final String TRANSFERRING = "transferring";
     final String ENTERING_ACCOUNT = "enteringAccount";
 
+    public static final int PASSWORD_UPDATED = 0;
     public static final int PASSWORD_INCORRECT = 1;
     public static final int PASSWORD_MISMATCH = 2;
     public static final int PASSWORD_SAME = 3;
-    public static final int PASSWORD_UPDATED = 0;
 
     // variables representing the ATM model
     String state = LOGGED_IN; // The current state of the ATM.
@@ -44,26 +60,42 @@ public class Model {
     String display1 = null; // The contents of the first message box in the GUI.
     String display2 = null; // The contents of the second message box in the GUI.
 
-    // The other parts of the model-view-controller setup
-
-    // Constructor for the Model class.
+    /**
+     * Constructor for the Model class.
+     * 
+     * @param b The bank to be associated with this model.
+     */
     public Model(Bank b) {
         Debug.trace("Model::<constructor>");
         bank = b;
     }
 
+    /**
+     * Sets the account number and password for this model.
+     * 
+     * @param accNumber The account number to be set.
+     * @param accPasswd The account password to be set.
+     */
     public void setAccount(int accNumber, String accPasswd) {
         this.accNumber = accNumber;
         this.accPasswd = accPasswd;
     }
 
-    // Method to get the current account, used to decide which scene to show when "Account" is clicked
-    // Used in the Controller class.
+    /**
+     * Gets the current account associated with this model.
+     * 
+     * @return The current account.
+     */
     public BankAccount getCurrentAccount() {
         return bank.account;
     }
 
-    // Method to initialize the ATM.
+    /**
+     * Initializes the ATM with a given message.
+     * 
+     * @param message The message to be displayed upon initialization.
+     *                This message is displayed in the TextArea of the GUI.
+     */
     public void initialise(String message) {
         Debug.trace("model::initialise");
         setState(LOGGED_IN);
@@ -73,7 +105,11 @@ public class Model {
         display();
     }
 
-    // Method to change the state of the ATM.
+    /**
+     * Changes the state of the ATM.
+     * 
+     * @param newState The new state to be set.
+     */
     public void setState(String newState) {
         if (!state.equals(newState)) {
             String oldState = state;
@@ -82,6 +118,14 @@ public class Model {
         }
     }
 
+    /**
+     * Processes a number input. Also updates the display with the corresponding
+     * number.
+     * Also handles potential integer overflow problems and the "00" button.
+     * 
+     * @param label The number to be processed.
+     *              This number is displayed in the TextField of the GUI.
+     */
     public void processNumber(String label) {
         // Process each character in the label, I changed this slightly from
         // the original code so that it handles integer overflow and can also handle
@@ -101,7 +145,9 @@ public class Model {
         display(); // update the GUI
     }
 
-    // process the Clear button - reset the number (and number display string)
+    /**
+     * Processes the Clear button - reset the number (and number display string)
+     */
     public void processClear() {
         // clear the number stored in the model
         number = 0;
@@ -109,36 +155,49 @@ public class Model {
         display(); // update the GUI
     }
 
+    /**
+     * Processes the Enter button - what we do depends what state the ATM is already
+     * in
+     */
     public void processEnter() {
         // Enter was pressed - what we do depends what state the ATM is already in
         switch (state) {
-        case WITHDRAWING:
-            makeWithDrawal();
-            break;
-        case DEPOSITING:
-            makeDeposit();
-            break;
-        case ENTERING_ACCOUNT:
-            targetAccountNumber = number;
-            makeTransfer();
-            break;
-        case TRANSFERRING:
-            makeTransfer();
-            break;
-        case LOGGED_OUT:
-            // I just put this here to ensure the user gets logged out if the program glitches
-            // And they somehow manage to press enter after clicking the logout button
-            controller.process("LOGOUT");
-            break;
-        case LOGGED_IN:
-        default:
-            // do nothing in any other state (ie logged in)
+            case WITHDRAWING:
+                makeWithDrawal();
+                break;
+            case DEPOSITING:
+                makeDeposit();
+                break;
+            case ENTERING_ACCOUNT:
+                targetAccountNumber = number;
+                makeTransfer();
+                break;
+            case TRANSFERRING:
+                makeTransfer();
+                break;
+            case LOGGED_OUT:
+                // I just put this here to ensure the user gets logged out if the program
+                // glitches
+                // And they somehow manage to press enter after clicking the logout button
+                controller.process("LOGOUT");
+                break;
+            case LOGGED_IN:
+            default:
+                // do nothing in any other state (ie logged in)
         }
         display(); // update the GUI
     }
 
+    /**
+     * Changes the password of the account.
+     * 
+     * @param currentPassword The current password of the account.
+     * @param newPassword     The new password to be set.
+     * @param confirmPassword The confirmation of the new password.
+     * @return The status of the password change operation.
+     */
     public int changePassword(String currentPassword, String newPassword, String confirmPassword) {
-        Debug.trace("Model::changePassword");
+        Debug.trace("Model::changePassword %s \n%s \n%s", currentPassword, newPassword, confirmPassword);
         // Check if the current password is correct
         if (!currentPassword.equals(accPasswd)) {
             return PASSWORD_INCORRECT; // Current password is incorrect
@@ -158,6 +217,12 @@ public class Model {
         return PASSWORD_UPDATED; // Password updated successfully
     }
 
+    /**
+     * Changes the overdraft limit of the account.
+     * 
+     * @param overdraft The new overdraft limit to be set.
+     * @return The status of the overdraft change operation.
+     */
     public int changeOverdraft(String overdraft) {
         Debug.trace("Model::changeOverdraft");
         // Check if the overdraft is a positive number
@@ -183,10 +248,12 @@ public class Model {
         }
     }
 
-    // This method is used to process a withdrawal.
-    // If the user is logged in or depositing, it prompts the user to enter a
-    // withdrawal amount and sets the state to WITHDRAWING.
-    // If the user is not logged in, it informs the user and resets the state.
+    /**
+     * This method is used to process a withdrawal.
+     * If the user is logged in or depositing, it prompts the user to enter a
+     * withdrawal amount and sets the state to WITHDRAWING.
+     * If the user is not logged in, it informs the user and resets the state.
+     */
     public void processWithdraw() {
         Debug.trace("Model::processWithdraw");
         if (state.equals(LOGGED_IN)) {
@@ -203,7 +270,8 @@ public class Model {
                 } else if (withdrawalsLeft == 1) {
                     display2 += "\nYou have 1 withdrawal left.";
                 } else {
-                    // If the user has no withdrawals left, inform them and reset the state. exit method early via return
+                    // If the user has no withdrawals left, inform them and reset the state. exit
+                    // method early via return
                     initialise("You have no withdrawals left. You cannot withdraw.");
                     return;
                 }
@@ -217,10 +285,14 @@ public class Model {
         display(); // update the GUI
     }
 
-    // This method is used to make a withdrawal.
-    // It attempts to withdraw the specified amount from the bank.
-    // If the withdrawal is successful, it informs the user and updates their balance.
-    // If the withdrawal fails, it checks the type of account and informs the user accordingly.
+    /**
+     * This method is used to make a withdrawal.
+     * It attempts to withdraw the specified amount from the bank.
+     * If the withdrawal is successful, it informs the user and updates their
+     * balance.
+     * If the withdrawal fails, it checks the type of account and informs the user
+     * accordingly.
+     */
     public void makeWithDrawal() {
         Debug.trace("Model::makeWithdrawal");
         // Define the amount to withdraw
@@ -230,10 +302,12 @@ public class Model {
 
         // Try to withdraw the amount from the bank
         if (bank.withdraw(withdrawalAmount)) {
-            // If the withdrawal is successful, append the withdrawn amount and new balanceto the message
+            // If the withdrawal is successful, append the withdrawn amount and new
+            // balanceto the message
             display2Builder.append("Withdrawn: £").append(withdrawalAmount).append("\nYour new balance is now: ")
                     .append(formatBalance(bank.getBalance()));
-            // If the account is an OverdraftBankAccount, append the overdraft limit to the message
+            // If the account is an OverdraftBankAccount, append the overdraft limit to the
+            // message
             if (bank.account instanceof OverdraftBankAccount) {
                 display2Builder.append("\nYour overdraft limit is: £")
                         .append(((OverdraftBankAccount) bank.account).getOverdraftLimit());
@@ -246,24 +320,30 @@ public class Model {
                         + Math.abs(((OverdraftBankAccount) bank.account).getOverdraftLimit());
                 // Calculate the missing funds
                 missing_funds = Math.max(0, withdrawalAmount - availableFunds);
-                // If there are missing funds, append the required additional amount to the message
+                // If there are missing funds, append the required additional amount to the
+                // message
                 if (missing_funds != 0) {
                     display2Builder.append("You do not have sufficient funds. You need an additional: £")
                             .append(missing_funds);
                 }
             } else if (bank.account instanceof LimitedWithdrawalBankAccount) {
-                // If the account is a LimitedWithdrawalBankAccount, check the number of withdrawals today
+                // If the account is a LimitedWithdrawalBankAccount, check the number of
+                // withdrawals today
                 if (((LimitedWithdrawalBankAccount) bank.account).getWithdrawalsLeft() <= 0) {
-                    // If the maximum number of withdrawals for the day has been reached, append a message to that effect
+                    // If the maximum number of withdrawals for the day has been reached, append a
+                    // message to that effect
                     display2Builder.append("You have reached your maximum withdrawals for the day.");
                 } else {
-                    // If the maximum number of withdrawals for the day has not been reached, try to withdraw the amount
+                    // If the maximum number of withdrawals for the day has not been reached, try to
+                    // withdraw the amount
                     if (bank.account.withdraw(withdrawalAmount)) {
-                        // If the withdrawal is successful, append the withdrawn amount and new balance to the message
+                        // If the withdrawal is successful, append the withdrawn amount and new balance
+                        // to the message
                         display2Builder.append("Withdrawn: £").append(withdrawalAmount)
                                 .append("\nYour new balance is now: £").append(bank.getBalance());
                     } else {
-                        // If the withdrawal is not successful, append the required additional amount to the message
+                        // If the withdrawal is not successful, append the required additional amount to
+                        // the message
                         display2Builder.append("You do not have sufficient funds, you require another £")
                                 .append(Math.abs(bank.getBalance() - withdrawalAmount));
                     }
@@ -278,7 +358,8 @@ public class Model {
             }
         }
 
-        // Set the state to LOGGED_IN, clear display1, and set display2 to the built message.
+        // Set the state to LOGGED_IN, clear display1, and set display2 to the built
+        // message.
         setState(LOGGED_IN);
         display1 = "";
         display2 = display2Builder.toString();
@@ -286,6 +367,12 @@ public class Model {
         number = 0;
     }
 
+    /**
+     * This method is used to process a deposit.
+     * If the user is logged in, it prompts the user to enter a deposit amount and
+     * sets the state to DEPOSITING.
+     * If the user is not logged in, it informs the user and resets the state.
+     */
     public void processDeposit() {
         Debug.trace("Model::processDeposit");
         if (state.equals(LOGGED_IN)) {
@@ -304,6 +391,12 @@ public class Model {
         display(); // Update the GUI
     }
 
+    /**
+     * This method is used to make a deposit.
+     * It attempts to deposit the specified amount into the bank.
+     * If the deposit is successful, it informs the user and updates their balance.
+     * If the deposit fails, it informs the user and resets the state.
+     */
     public void makeDeposit() {
         Debug.trace("Model::makeDeposit");
         if (state.equals(DEPOSITING)) {
@@ -327,6 +420,11 @@ public class Model {
         display(); // Update the GUI
     }
 
+    /**
+     * This method is used to process a balance check.
+     * If the user is logged in, it displays the user's balance.
+     * If the user is not logged in, it informs the user and resets the state.
+     */
     public void processBalance() {
         Debug.trace("Model::processBalance");
         if (state.equals(LOGGED_IN)) {
@@ -343,6 +441,12 @@ public class Model {
         display(); // Update the GUI
     }
 
+    /**
+     * This method is used to process a transfer.
+     * If the user is logged in, it prompts the user to enter the target account and
+     * sets the state to ENTERING_ACCOUNT.
+     * If the user is not logged in, it informs the user and resets the state.
+     */
     public void processTransfer() {
         Debug.trace("Model::processTransfer");
         if (state.equals(LOGGED_IN)) {
@@ -363,6 +467,12 @@ public class Model {
         display(); // Update the GUI
     }
 
+    /**
+     * This method is used to make a transfer.
+     * It attempts to transfer the specified amount to the target account.
+     * If the transfer is successful, it informs the user and updates their balance.
+     * If the transfer fails, it informs the user and resets the state.
+     */
     public void makeTransfer() {
         Debug.trace("Model::makeTransfer");
         if (state.equals(ENTERING_ACCOUNT)) {
@@ -392,6 +502,15 @@ public class Model {
         display(); // Update the GUI - 1
     }
 
+    /**
+     * This method is used to format the balance.
+     * It formats the balance as a string with a currency symbol.
+     * If the balance is negative, it adds a message about overdraft.
+     *
+     * @param balance The balance to be formatted, represented as an integer.
+     * @return A string representation of the balance, formatted with a currency
+     *         symbol and potentially an overdraft message.
+     */
     public static String formatBalance(int balance) {
         StringBuilder balanceBuilder = new StringBuilder();
         if (balance < 0) {
@@ -402,6 +521,11 @@ public class Model {
         return balanceBuilder.toString();
     }
 
+    /**
+     * This method is used to process a statement request.
+     * If the user is logged in, it displays the user's statement.
+     * If the user is not logged in, it informs the user and resets the state.
+     */
     public void processStatement() {
         Debug.trace("Model::processStatement");
         if (state.equals(LOGGED_IN)) {
@@ -418,7 +542,12 @@ public class Model {
         display(); // Update the GUI
     }
 
-    // Any other key results in an error message and a reset of the GUI
+    /**
+     * This method is used to process an unknown key.
+     * It resets the state and informs the user about the error.
+     *
+     * @param action The action that was not recognized, represented as a string.
+     */
     public void processUnknownKey(String action) {
         // unknown button, or invalid for this state - reset everything
         Debug.trace("Model::processUnknownKey: unknown button \"" + action + "\", re-initialising");
@@ -427,6 +556,11 @@ public class Model {
         display();
     }
 
+    /**
+     * This method is used to process a cancel request.
+     * It resets the state and informs the user that the transaction has been
+     * cancelled.
+     */
     public void processCancel() {
         // Cancel button - reset everything
         Debug.trace("Model::processCancel");
@@ -434,6 +568,10 @@ public class Model {
         initialise("Transaction cancelled");
     }
 
+    /**
+     * This method is used to process a logout request.
+     * It logs the user out and resets the state.
+     */
     public void processLogout() {
         // Logout button - reset everything
         Debug.trace("Model::processLogout");
@@ -442,6 +580,10 @@ public class Model {
         bank.logout();
     }
 
+    /**
+     * This method is used to update the display.
+     * It updates the display with the current state information.
+     */
     public void display() {
         Debug.trace("Model::display");
         controller.update(display1, display2);

@@ -15,6 +15,10 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import java.io.IOException;
 
+/**
+ * The LoginController class is responsible for handling user login actions in the ATM application.
+ * It controls the login functionality, loads the main ATM scene, and sets up the model, view, and controller.
+ */
 public class LoginController {
     Controller controller = new Controller();
 
@@ -26,6 +30,15 @@ public class LoginController {
 
     @FXML
     private PasswordField passwordField;
+
+    /**
+     * Handles the login action when the login button is pressed.
+     * It gets the account number and password from the text fields, and attempts to log in.
+     * If login is successful, it loads the main ATM scene and sets up the model, view, and controller.
+     * If login fails, it shows an error alert.
+     *
+     * @param event the action event
+     */
 
     @FXML
     private void handleLoginAction(ActionEvent event) {

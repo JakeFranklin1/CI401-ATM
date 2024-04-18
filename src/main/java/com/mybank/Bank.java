@@ -3,6 +3,17 @@ package com.mybank;
 import java.io.*;
 import java.util.*;
 
+/**
+ * This class represents a bank, which can hold a maximum number of bank
+ * accounts.
+ * It provides methods for loading and saving accounts from/to a CSV file,
+ * logging transactions,
+ * adding accounts, logging in and out, depositing and withdrawing money,
+ * getting the balance,
+ * transferring money between accounts, updating the password of an account, and
+ * getting the statement of an account.
+ */
+
 public class Bank {
     int maxAccounts = 10; // maximum number of accounts the bank can hold
     List<BankAccount> accounts = new ArrayList<>(); // list to hold the bank accounts
@@ -10,12 +21,19 @@ public class Bank {
     String accountsFile = "CSV/accounts.csv"; // CSV file to store accounts
     String transactionsFile = "CSV/transaction_history.csv"; // CSV file to store accounts
 
+    /**
+     * Constructor for the Bank class.
+     * It initializes the bank and loads the accounts from the CSV file.
+     */
     public Bank() {
         Debug.trace("Bank::<constructor>");
         loadAccounts();
     }
 
-    // Load accounts from CSV file
+    /**
+     * Loads the accounts from the CSV file.
+     */
+
     private void loadAccounts() {
         Debug.trace("Bank::loadAccounts: Loading accounts from file");
         try (BufferedReader br = new BufferedReader(new FileReader(accountsFile))) {
@@ -58,7 +76,10 @@ public class Bank {
         }
     }
 
-    // Save accounts to CSV file
+    /**
+     * Saves the accounts to the CSV file.
+     */
+
     private void saveAccounts() {
         try (PrintWriter pw = new PrintWriter(new FileWriter(accountsFile))) {
             String accountType = "";
@@ -85,6 +106,15 @@ public class Bank {
         }
     }
 
+    /**
+     * Logs a transaction for a specific account.
+     *
+     * @param accNumber       The account number.
+     * @param transactionType The type of the transaction.
+     * @param amount          The amount of money involved in the transaction.
+     * @param newBalance      The new balance of the account after the transaction.
+     */
+
     public void logTransaction(int accNumber, String transactionType, int amount, int newBalance) {
         try {
             Debug.trace("Bank::logTransaction: Logging transaction for account %d", accNumber);
@@ -108,6 +138,13 @@ public class Bank {
             e.printStackTrace();
         }
     }
+
+    /**
+     * Adds a bank account to the bank.
+     *
+     * @param a The bank account to be added.
+     * @return true if the account was added successfully, false otherwise.
+     */
 
     public boolean addBankAccount(BankAccount a) {
         Debug.trace("Bank::addBankAccount: Adding bank account %d", a.accNumber);
@@ -144,10 +181,18 @@ public class Bank {
         addBankAccount(account);
     }
 
+    /**
+     * Logs in to a specific account.
+     *
+     * @param newAccNumber The account number.
+     * @param newAccPasswd The password of the account.
+     * @return true if the login was successful, false otherwise.
+     */
+
     public boolean login(int newAccNumber, String newAccPasswd) {
         Debug.trace("Bank::login: Attempting to login with account %d", newAccNumber);
         logout();
-    
+
         for (BankAccount b : accounts) {
             if (b.accNumber == newAccNumber) {
                 String storedPasswordHash = b.accPasswd;
@@ -163,7 +208,10 @@ public class Bank {
         return false;
     }
 
-    // Reset the bank to a 'logged out' state
+    /**
+     * Logs out from the current account.
+     */
+
     public void logout() {
         if (loggedIn()) {
             Debug.trace("Bank::logout: logging out, accNumber = " + account.accNumber);
@@ -171,7 +219,12 @@ public class Bank {
         }
     }
 
-    // test whether the bank is logged in to an account or not
+    /**
+     * Checks if the bank is logged in to an account or not.
+     *
+     * @return true if the bank is logged in to an account, false otherwise.
+     */
+
     public boolean loggedIn() {
         if (account == null) {
             return false;
@@ -179,6 +232,13 @@ public class Bank {
             return true;
         }
     }
+
+    /**
+     * Deposits a certain amount of money to the current account.
+     *
+     * @param amount The amount of money to be deposited.
+     * @return true if the deposit was successful, false otherwise.
+     */
 
     public boolean deposit(int amount) {
         if (loggedIn()) {
@@ -194,6 +254,13 @@ public class Bank {
         }
     }
 
+    /**
+     * Withdraws a certain amount of money from the current account.
+     *
+     * @param amount The amount of money to be withdrawn.
+     * @return true if the withdrawal was successful, false otherwise.
+     */
+
     public boolean withdraw(int amount) {
         if (loggedIn()) {
             Debug.trace("Bank::withdraw: Withdrawing %d", amount);
@@ -208,6 +275,13 @@ public class Bank {
         }
     }
 
+    /**
+     * Gets the balance of the current account.
+     *
+     * @return The balance of the current account, or -1 if the bank is not logged
+     *         in to an account.
+     */
+
     public int getBalance() {
         if (loggedIn()) {
             Debug.trace("Bank::getBalance: Getting balance");
@@ -217,6 +291,16 @@ public class Bank {
             return -1; // use -1 as an indicator of an error
         }
     }
+
+    /**
+     * Transfers a certain amount of money from a source account to a target
+     * account.
+     *
+     * @param sourceAccNumber The account number of the source account.
+     * @param targetAccNumber The account number of the target account.
+     * @param amount          The amount of money to be transferred.
+     * @return true if the transfer was successful, false otherwise.
+     */
 
     public boolean transfer(int sourceAccNumber, int targetAccNumber, int amount) {
         // Check if a user is logged in
@@ -262,6 +346,14 @@ public class Bank {
         return false;
     }
 
+    /**
+     * Updates the password of a specific account.
+     *
+     * @param accNumber   The account number.
+     * @param newPassword The new password.
+     * @return true if the password was updated successfully, false otherwise.
+     */
+
     public boolean updatePassword(int accNumber, String newPassword) {
         Debug.trace("Bank::updatePassword: Attempting to update password for account %d", accNumber);
         for (BankAccount acc : accounts) {
@@ -278,6 +370,13 @@ public class Bank {
         Debug.trace("Bank::updatePassword: Failed to find account %d", accNumber);
         return false; // Account not found or password not updated
     }
+
+    /**
+     * Gets the statement of the current account.
+     *
+     * @return The statement of the current account, or an error message if the bank
+     *         is not logged in to an account.
+     */
 
     public String getStatement() {
         if (loggedIn()) {
