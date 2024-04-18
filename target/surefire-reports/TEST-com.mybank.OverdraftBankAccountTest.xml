@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.mybank.OverdraftBankAccountTest" time="0.005" tests="5" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="java.specification.version" value="21"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.class.path" value="C:\Users\jakef\OneDrive\Desktop\atm-test-two-3\target\test-classes;C:\Users\jakef\.m2\repository\org\openjfx\javafx-controls\22\javafx-controls-22.jar;C:\Users\jakef\.m2\repository\org\openjfx\javafx-graphics\22\javafx-graphics-22.jar;C:\Users\jakef\.m2\repository\org\openjfx\javafx-base\22\javafx-base-22.jar;C:\Users\jakef\.m2\repository\org\openjfx\javafx-fxml\22\javafx-fxml-22.jar;C:\Users\jakef\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.8.1\junit-jupiter-api-5.8.1.jar;C:\Users\jakef\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\jakef\.m2\repository\org\junit\platform\junit-platform-commons\1.8.1\junit-platform-commons-1.8.1.jar;C:\Users\jakef\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\jakef\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.8.1\junit-jupiter-engine-5.8.1.jar;C:\Users\jakef\.m2\repository\org\junit\platform\junit-platform-engine\1.8.1\junit-platform-engine-1.8.1.jar;"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="user.variant" value=""/>
+    <property name="java.vendor.url" value="https://java.oracle.com/"/>
+    <property name="user.timezone" value="Europe/London"/>
+    <property name="os.name" value="Windows 10"/>
+    <property name="java.vm.specification.version" value="21"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="GB"/>
+    <property name="sun.boot.library.path" value="C:\Users\jakef\.jdks\openjdk-21.0.1\bin"/>
+    <property name="sun.java.command" value="org.apache.maven.surefire.booter.ForkedBooter C:\Users\jakef\AppData\Local\Temp\surefire5936346230558480690 2024-04-18T23-29-21_034-jvmRun1 surefire15866059144575878tmp surefire_01035015441252890691tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="C:\Users\jakef\OneDrive\Desktop\atm-test-two-3\target\test-classes;C:\Users\jakef\.m2\repository\org\openjfx\javafx-controls\22\javafx-controls-22.jar;C:\Users\jakef\.m2\repository\org\openjfx\javafx-graphics\22\javafx-graphics-22.jar;C:\Users\jakef\.m2\repository\org\openjfx\javafx-base\22\javafx-base-22.jar;C:\Users\jakef\.m2\repository\org\openjfx\javafx-fxml\22\javafx-fxml-22.jar;C:\Users\jakef\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.8.1\junit-jupiter-api-5.8.1.jar;C:\Users\jakef\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\jakef\.m2\repository\org\junit\platform\junit-platform-commons\1.8.1\junit-platform-commons-1.8.1.jar;C:\Users\jakef\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\jakef\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.8.1\junit-jupiter-engine-5.8.1.jar;C:\Users\jakef\.m2\repository\org\junit\platform\junit-platform-engine\1.8.1\junit-platform-engine-1.8.1.jar;"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="C:\Users\jakef"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="jdk.module.path" value="C:\Users\jakef\OneDrive\Desktop\atm-test-two-3\target\classes;C:\Users\jakef\.m2\repository\org\openjfx\javafx-controls\22\javafx-controls-22-win.jar;C:\Users\jakef\.m2\repository\org\openjfx\javafx-graphics\22\javafx-graphics-22-win.jar;C:\Users\jakef\.m2\repository\org\openjfx\javafx-base\22\javafx-base-22-win.jar;C:\Users\jakef\.m2\repository\org\openjfx\javafx-fxml\22\javafx-fxml-22-win.jar;C:\Users\jakef\.m2\repository\org\bouncycastle\bcprov-jdk15on\1.70\bcprov-jdk15on-1.70.jar"/>
+    <property name="java.version.date" value="2023-10-17"/>
+    <property name="java.home" value="C:\Users\jakef\.jdks\openjdk-21.0.1"/>
+    <property name="file.separator" value="\"/>
+    <property name="basedir" value="C:\Users\jakef\OneDrive\Desktop\atm-test-two-3"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="surefire.real.class.path" value="C:\Users\jakef\.m2\repository\org\apache\maven\surefire\surefire-booter\3.0.0-M5\surefire-booter-3.0.0-M5.jar;C:\Users\jakef\.m2\repository\org\apache\maven\surefire\surefire-api\3.0.0-M5\surefire-api-3.0.0-M5.jar;C:\Users\jakef\.m2\repository\org\apache\maven\surefire\surefire-logger-api\3.0.0-M5\surefire-logger-api-3.0.0-M5.jar;C:\Users\jakef\.m2\repository\org\apache\maven\surefire\surefire-shared-utils\3.0.0-M4\surefire-shared-utils-3.0.0-M4.jar;C:\Users\jakef\.m2\repository\org\apache\maven\surefire\surefire-extensions-spi\3.0.0-M5\surefire-extensions-spi-3.0.0-M5.jar;C:\Users\jakef\OneDrive\Desktop\atm-test-two-3\target\test-classes;C:\Users\jakef\.m2\repository\org\openjfx\javafx-controls\22\javafx-controls-22.jar;C:\Users\jakef\.m2\repository\org\openjfx\javafx-graphics\22\javafx-graphics-22.jar;C:\Users\jakef\.m2\repository\org\openjfx\javafx-base\22\javafx-base-22.jar;C:\Users\jakef\.m2\repository\org\openjfx\javafx-fxml\22\javafx-fxml-22.jar;C:\Users\jakef\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.8.1\junit-jupiter-api-5.8.1.jar;C:\Users\jakef\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\jakef\.m2\repository\org\junit\platform\junit-platform-commons\1.8.1\junit-platform-commons-1.8.1.jar;C:\Users\jakef\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\jakef\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.8.1\junit-jupiter-engine-5.8.1.jar;C:\Users\jakef\.m2\repository\org\junit\platform\junit-platform-engine\1.8.1\junit-platform-engine-1.8.1.jar;C:\Users\jakef\.m2\repository\org\apache\maven\surefire\surefire-junit-platform\3.0.0-M5\surefire-junit-platform-3.0.0-M5.jar;C:\Users\jakef\.m2\repository\org\apache\maven\surefire\common-java5\3.0.0-M5\common-java5-3.0.0-M5.jar;C:\Users\jakef\.m2\repository\org\junit\platform\junit-platform-launcher\1.8.1\junit-platform-launcher-1.8.1.jar"/>
+    <property name="user.script" value=""/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="21.0.1+12-29"/>
+    <property name="user.name" value="jakef"/>
+    <property name="stdout.encoding" value="Cp1252"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="10.0"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="localRepository" value="C:\Users\jakef\.m2\repository"/>
+    <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
+    <property name="java.io.tmpdir" value="C:\Users\jakef\AppData\Local\Temp\"/>
+    <property name="idea.version" value="2023.2.5"/>
+    <property name="java.version" value="21.0.1"/>
+    <property name="user.dir" value="C:\Users\jakef\OneDrive\Desktop\atm-test-two-3"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="native.encoding" value="Cp1252"/>
+    <property name="java.library.path" value="C:\Users\jakef\.jdks\openjdk-21.0.1\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files\Eclipse Adoptium\jdk-21.0.2.13-hotspot\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\dotnet\;C:\Program Files\Azure Data Studio\bin;C:\Program Files\Git\cmd;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Users\jakef\AppData\Local\Programs\Python\Python311\Scripts\;C:\Users\jakef\AppData\Local\Programs\Python\Python311\;C:\Users\jakef\AppData\Local\Microsoft\WindowsApps;C:\Users\jakef\AppData\Local\Programs\Microsoft VS Code\bin;C:\ffmpeg\bin;;C:\Program Files\Azure Data Studio\bin;."/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="stderr.encoding" value="Cp1252"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.version" value="21.0.1+12-29"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="65.0"/>
+  </properties>
+  <testcase name="testWithdrawValidAmount" classname="com.mybank.OverdraftBankAccountTest" time="0">
+    <system-out><![CDATA[OverdraftBankAccount::withdraw: amount =500
+LocalBank::getBalance
+]]></system-out>
+  </testcase>
+  <testcase name="testWithdrawInvalidAmount" classname="com.mybank.OverdraftBankAccountTest" time="0">
+    <system-out><![CDATA[OverdraftBankAccount::withdraw: amount =1500
+LocalBank::getBalance
+]]></system-out>
+  </testcase>
+  <testcase name="testSetAndGetOverdraftLimit" classname="com.mybank.OverdraftBankAccountTest" time="0"/>
+  <testcase name="testWithdrawAmountExceedsOverdraftLimit" classname="com.mybank.OverdraftBankAccountTest" time="0.001">
+    <system-out><![CDATA[OverdraftBankAccount::withdraw: amount =2000
+LocalBank::getBalance
+]]></system-out>
+  </testcase>
+  <testcase name="testWithdrawNegativeAmount" classname="com.mybank.OverdraftBankAccountTest" time="0.001">
+    <system-out><![CDATA[OverdraftBankAccount::withdraw: amount =-200
+LocalBank::getBalance
+]]></system-out>
+  </testcase>
+</testsuite>
