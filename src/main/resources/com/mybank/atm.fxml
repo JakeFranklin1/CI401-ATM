@@ -289,7 +289,7 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label fx:id="welcomeLabel" alignment="TOP_LEFT" layoutX="7.0" layoutY="6.0" prefHeight="224.0" prefWidth="257.0" text="Welcome, {name}. -TODO&#10;&#10;We're delighted to serve you today. Whether you're here to withdraw cash, check your balance, or perform other banking transactions, we're here to make your experience smooth and convenient." wrapText="true">
+            <Label fx:id="welcomeLabel" alignment="TOP_LEFT" layoutX="7.0" layoutY="6.0" prefHeight="224.0" prefWidth="257.0" text="Welcome!&#10;&#10;We're delighted to serve you today. Whether you're here to withdraw cash, check your balance, or perform other banking transactions, we're here to make your experience smooth and convenient." wrapText="true">
                <font>
                   <Font size="18.0" />
                </font>
