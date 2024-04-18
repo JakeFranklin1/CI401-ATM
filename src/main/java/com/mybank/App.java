@@ -15,7 +15,6 @@ public class App extends Application {
         Debug.trace("App::start");
 
         View view = new View();
-
         view.start(window, "login.fxml"); // load login.fxml instead of atm.fxml
 
         // application is now running

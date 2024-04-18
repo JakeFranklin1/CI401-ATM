@@ -3,6 +3,11 @@ import java.io.*;
 import java.util.*;
 
 
+/**
+ * The BankAccount class represents a bank account with account number, password, balance, and account type.
+ * It provides methods to withdraw and deposit money, get the current balance, and retrieve the transaction history.
+ */
+
 public class BankAccount {
     public int accNumber = 0;
     public String accPasswd = "";

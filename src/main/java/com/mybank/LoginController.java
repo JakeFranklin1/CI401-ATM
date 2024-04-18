@@ -18,8 +18,6 @@ import java.io.IOException;
 public class LoginController {
     Controller controller = new Controller();
 
-    
-
     @FXML
     private TextField accountField;
 
@@ -64,7 +62,6 @@ public class LoginController {
                 model.setController(controller);
                 view.setController(controller);
                 // Set the state of the model and the account.
-                model.setState(model.LOGGED_IN);
                 model.setAccount(Integer.parseInt(accountNumber), password);
                 controller.update("Welcome to the ATM", "");
 

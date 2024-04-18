@@ -19,7 +19,7 @@ public class Model {
     }
 
     // Constants representing different states of the ATM.
-    public final String LOGGED_IN = "logged_in";
+    final String LOGGED_IN = "logged_in";
     final String CHANGE_PASSWORD = "change_password";
     final String WITHDRAWING = "withdrawing";
     final String DEPOSITING = "depositing";

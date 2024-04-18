@@ -113,7 +113,7 @@ public class Bank {
         Debug.trace("Bank::addBankAccount: Adding bank account %d", a.accNumber);
         if (accounts.size() < maxAccounts) {
             accounts.add(a);
-            Debug.trace("Bank::addBankAccount: added " + a.accNumber + " " + a.accPasswd + " £" + a.balance);
+            Debug.trace("Bank::addBankAccount: added Account:" + a.accNumber + " Balance: £" + a.balance);
             saveAccounts();
             return true;
         } else {
@@ -147,16 +147,18 @@ public class Bank {
     public boolean login(int newAccNumber, String newAccPasswd) {
         Debug.trace("Bank::login: Attempting to login with account %d", newAccNumber);
         logout();
-
+    
         for (BankAccount b : accounts) {
-            if (b.accNumber == newAccNumber && String.valueOf(b.accPasswd).equals(newAccPasswd)) {
-                // found the right account
-                Debug.trace("Bank::login: logged in, accNumber = " + newAccNumber + " balance = " + b.getBalance());
-                account = b;
-                return true;
+            if (b.accNumber == newAccNumber) {
+                String storedPasswordHash = b.accPasswd;
+                boolean passwordMatches = SecurityUtils.checkPassword(storedPasswordHash, newAccPasswd);
+                if (passwordMatches) {
+                    Debug.trace("Bank::login: logged in, accNumber = " + newAccNumber + " balance = " + b.getBalance());
+                    account = b;
+                }
+                return passwordMatches;
             }
         }
-
         account = null;
         return false;
     }
@@ -261,16 +263,19 @@ public class Bank {
     }
 
     public boolean updatePassword(int accNumber, String newPassword) {
+        Debug.trace("Bank::updatePassword: Attempting to update password for account %d", accNumber);
         for (BankAccount acc : accounts) {
             if (acc != null && acc.accNumber == accNumber) {
-                acc.accPasswd = newPassword;
+                Debug.trace("Bank::updatePassword: Found account %d", accNumber);
+                String newHashedPassword = SecurityUtils.hashPassword(newPassword);
+                acc.accPasswd = newHashedPassword;
+                Debug.trace("Bank::updatePassword: Successfully updated password");
                 saveAccounts();
-                Debug.trace("Bank::updatePassword: Updating password for account %d, the new password is: %s",
-                        accNumber, newPassword);
+                Debug.trace("Bank::updatePassword: Saved accounts to file");
                 return true; // Password updated successfully
             }
         }
-        Debug.trace("Bank::updatePassword: failed updating for account %d", accNumber);
+        Debug.trace("Bank::updatePassword: Failed to find account %d", accNumber);
         return false; // Account not found or password not updated
     }
 

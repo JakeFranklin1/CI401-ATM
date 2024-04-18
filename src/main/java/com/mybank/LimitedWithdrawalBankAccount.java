@@ -23,7 +23,7 @@ public class LimitedWithdrawalBankAccount extends BankAccount {
     public boolean withdraw(int amount) {
         Debug.trace("LimitedWithdrawalBankAccount::withdraw: amount =" + amount);
 
-        if (amount < 0 || withdrawalsToday >= MAX_WITHDRAWALS_PER_DAY) {
+        if (amount < 0 || withdrawalsToday >= MAX_WITHDRAWALS_PER_DAY || balance < amount) {
             return false;
         } else {
             balance -= amount; // subtract amount from balance
