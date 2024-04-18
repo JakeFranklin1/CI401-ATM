@@ -4,7 +4,7 @@ package com.mybank;
 public class OverdraftBankAccount extends BankAccount {
     private int overdraftLimit;
 
-    public OverdraftBankAccount(int accNumber, int accPasswd, int balance, int overdraftLimit) {
+    public OverdraftBankAccount(int accNumber, String accPasswd, int balance, int overdraftLimit) {
         super(accNumber, accPasswd, balance);
         this.overdraftLimit = overdraftLimit;
         this.accountType = "overdraft"; // Update this field

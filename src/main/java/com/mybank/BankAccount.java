@@ -5,14 +5,14 @@ import java.util.*;
 
 public class BankAccount {
     public int accNumber = 0;
-    public int accPasswd = 0;
+    public String accPasswd = "";
     public int balance = 0;
     public String accountType = "normal";
 
     public BankAccount() {
     }
 
-    public BankAccount(int a, int p, int b) {
+    public BankAccount(int a, String p, int b) {
         accNumber = a;
         accPasswd = p;
         balance = b;

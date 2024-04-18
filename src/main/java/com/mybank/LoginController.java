@@ -18,6 +18,8 @@ import java.io.IOException;
 public class LoginController {
     Controller controller = new Controller();
 
+    
+
     @FXML
     private TextField accountField;
 
@@ -34,7 +36,7 @@ public class LoginController {
         String password = passwordField.getText();
         // Create a Bank object
         Bank b = new Bank();
-        if (b.login(Integer.parseInt(accountNumber), Integer.parseInt(password))) {
+        if (b.login(Integer.parseInt(accountNumber), password)) {
             try {
                 URL url = getClass().getResource("/com/mybank/atm.fxml");
                 if (url == null) {
@@ -63,7 +65,7 @@ public class LoginController {
                 view.setController(controller);
                 // Set the state of the model and the account.
                 model.setState(model.LOGGED_IN);
-                model.setAccount(Integer.parseInt(accountNumber), Integer.parseInt(password));
+                model.setAccount(Integer.parseInt(accountNumber), password);
                 controller.update("Welcome to the ATM", "");
 
             } catch (IOException e) {

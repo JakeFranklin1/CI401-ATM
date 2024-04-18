@@ -8,7 +8,7 @@ public class LimitedWithdrawalBankAccount extends BankAccount {
     protected int withdrawalsToday;
 
     // Constructor for the LimitedWithdrawalBankAccount class
-    public LimitedWithdrawalBankAccount(int accNumber, int accPasswd, int balance) {
+    public LimitedWithdrawalBankAccount(int accNumber, String accPasswd, int balance) {
         super(accNumber, accPasswd, balance); // Call the constructor of the superclass (BankAccount)
         this.withdrawalsToday = 0; // Initialize the number of withdrawals made today to 0
         this.accountType = "limited"; // Set the account type to "limited"

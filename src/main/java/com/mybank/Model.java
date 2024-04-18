@@ -38,8 +38,8 @@ public class Model {
     Bank bank = null; // The Bank object that the ATM communicates with.
     int targetAccountNumber = -1; // The target account number for a transfer operation.
     int accNumber = -1; // The account number entered by the user.
-    int accPasswd = -1; // The password entered by the user.
-    int newPassword = -1; // The new password entered by the user during password change.
+    String accPasswd = ""; // The password entered by the user.
+    String newPassword = ""; // The new password entered by the user during password change.
     int missing_funds = 0; // The amount of funds missing during a withdrawal operation.
     String display1 = null; // The contents of the first message box in the GUI.
     String display2 = null; // The contents of the second message box in the GUI.
@@ -52,7 +52,7 @@ public class Model {
         bank = b;
     }
 
-    public void setAccount(int accNumber, int accPasswd) {
+    public void setAccount(int accNumber, String accPasswd) {
         this.accNumber = accNumber;
         this.accPasswd = accPasswd;
     }
@@ -140,7 +140,7 @@ public class Model {
     public int changePassword(String currentPassword, String newPassword, String confirmPassword) {
         Debug.trace("Model::changePassword");
         // Check if the current password is correct
-        if (!currentPassword.equals(Integer.toString(accPasswd))) {
+        if (!currentPassword.equals(accPasswd)) {
             return PASSWORD_INCORRECT; // Current password is incorrect
         }
         // Check if the new password matches the confirmed password
@@ -153,8 +153,8 @@ public class Model {
         }
         // If none of the error conditions are met, change the password
         Debug.trace("Model::changePassword: changing password: " + accPasswd + " to " + newPassword);
-        accPasswd = Integer.parseInt(newPassword); // Update the password in the model
-        bank.updatePassword(accNumber, Integer.parseInt(newPassword)); // Update the password in the bank
+        accPasswd = newPassword; // Update the password in the model
+        bank.updatePassword(accNumber, newPassword); // Update the password in the bank
         return PASSWORD_UPDATED; // Password updated successfully
     }
 

@@ -30,28 +30,31 @@ public class Bank {
                 }
                 // Associate the given values with the account fields
                 String[] values = line.split(",");
-                int accNumber = Integer.parseInt(values[0]);
-                int accPasswd = Integer.parseInt(values[1]);
-                int balance = Integer.parseInt(values[2]);
-                String accountType = values[3];
+                try {
+                    int accNumber = Integer.parseInt(values[0]);
+                    String accPasswd = values[1]; // Decrypt the password here
+                    int balance = Integer.parseInt(values[2]);
+                    String accountType = values[3];
 
-                // Create the appropriate account type based on the accountType
-
-                switch (accountType) {
-                    case "overdraft":
-                        int overdraftLimit = Integer.parseInt(values[4]);
-                        makeOverdraftBankAccount(accNumber, accPasswd, balance, overdraftLimit);
-                        break;
-                    case "limited":
-                        makeLimitedWithdrawalBankAccount(accNumber, accPasswd, balance);
-                        break;
-                    default:
-                        addBankAccount(accNumber, accPasswd, balance);
-                        break;
+                    // Create the appropriate account type based on the accountType
+                    switch (accountType) {
+                        case "overdraft":
+                            int overdraftLimit = Integer.parseInt(values[4]);
+                            makeOverdraftBankAccount(accNumber, accPasswd, balance, overdraftLimit);
+                            break;
+                        case "limited":
+                            makeLimitedWithdrawalBankAccount(accNumber, accPasswd, balance);
+                            break;
+                        default:
+                            addBankAccount(accNumber, accPasswd, balance);
+                            break;
+                    }
+                } catch (Exception e) {
+                    Debug.trace("Bank::loadAccounts: Error parsing account data: " + e.getMessage());
                 }
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            Debug.trace("Bank::loadAccounts: Error reading accounts file: " + e.getMessage());
         }
     }
 
@@ -73,7 +76,9 @@ public class Bank {
                     accountType = "normal";
                     extraInfo = ",0";
                 }
+
                 pw.println(a.accNumber + "," + a.accPasswd + "," + a.balance + "," + accountType + extraInfo);
+
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -119,38 +124,39 @@ public class Bank {
 
     // Rest of your methods...
 
-    public boolean addBankAccount(int accNumber, int accPasswd, int balance) {
+    public boolean addBankAccount(int accNumber, String accPasswd, int balance) {
         return addBankAccount(makeBankAccount(accNumber, accPasswd, balance));
     }
 
     // Method to create OverdraftBankAccount and add it to the bank
-    public void makeOverdraftBankAccount(int accNumber, int accPasswd, int balance, int overdraftLimit) {
+    public void makeOverdraftBankAccount(int accNumber, String accPasswd, int balance, int overdraftLimit) {
         OverdraftBankAccount account = new OverdraftBankAccount(accNumber, accPasswd, balance, overdraftLimit);
         addBankAccount(account);
     }
 
-    private BankAccount makeBankAccount(int accNumber, int accPasswd, int balance) {
+    private BankAccount makeBankAccount(int accNumber, String accPasswd, int balance) {
         return new BankAccount(accNumber, accPasswd, balance);
     }
 
     // Method to create LimitedWithdrawalBankAccount and add it to the bank
-    public void makeLimitedWithdrawalBankAccount(int accNumber, int accPasswd, int balance) {
+    public void makeLimitedWithdrawalBankAccount(int accNumber, String accPasswd, int balance) {
         LimitedWithdrawalBankAccount account = new LimitedWithdrawalBankAccount(accNumber, accPasswd, balance);
         addBankAccount(account);
     }
 
-    public boolean login(int newAccNumber, int newAccPasswd) {
+    public boolean login(int newAccNumber, String newAccPasswd) {
         Debug.trace("Bank::login: Attempting to login with account %d", newAccNumber);
         logout();
 
         for (BankAccount b : accounts) {
-            if (b.accNumber == newAccNumber && b.accPasswd == newAccPasswd) {
+            if (b.accNumber == newAccNumber && String.valueOf(b.accPasswd).equals(newAccPasswd)) {
                 // found the right account
                 Debug.trace("Bank::login: logged in, accNumber = " + newAccNumber + " balance = " + b.getBalance());
                 account = b;
                 return true;
             }
         }
+
         account = null;
         return false;
     }
@@ -254,12 +260,12 @@ public class Bank {
         return false;
     }
 
-    public boolean updatePassword(int accNumber, int newPassword) {
+    public boolean updatePassword(int accNumber, String newPassword) {
         for (BankAccount acc : accounts) {
             if (acc != null && acc.accNumber == accNumber) {
                 acc.accPasswd = newPassword;
                 saveAccounts();
-                Debug.trace("Bank::updatePassword: Updating password for account %d, the new password is: %d",
+                Debug.trace("Bank::updatePassword: Updating password for account %d, the new password is: %s",
                         accNumber, newPassword);
                 return true; // Password updated successfully
             }
