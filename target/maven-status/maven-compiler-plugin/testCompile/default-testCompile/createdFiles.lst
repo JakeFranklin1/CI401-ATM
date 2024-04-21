@@ -1,5 +1,5 @@
-com\mybank\SecurityUtilsTest.class
-com\mybank\BankAccountTest.class
-com\mybank\LimitedWithdrawalBankAccountTest.class
-com\mybank\OverdraftBankAccountTest.class
-com\mybank\BankTest.class
+com/mybank/SecurityUtilsTest.class
+com/mybank/BankTest.class
+com/mybank/LimitedWithdrawalBankAccountTest.class
+com/mybank/OverdraftBankAccountTest.class
+com/mybank/BankAccountTest.class
