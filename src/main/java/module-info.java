@@ -12,7 +12,7 @@ module com.mybank {
     requires transitive javafx.graphics;
     requires org.bouncycastle.provider;
 
-    opens com.mybank to javafx.fxml;
+    opens CI401.mybank to javafx.fxml;
 
-    exports com.mybank;
+    exports CI401.mybank;
 }

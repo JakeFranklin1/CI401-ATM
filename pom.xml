@@ -1,7 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.mybank</groupId>
+    <groupId>CI401.mybank</groupId>
     <artifactId>atm-test-two</artifactId>
     <version>1.0-SNAPSHOT</version>
     <properties>
@@ -61,13 +61,13 @@
                 <artifactId>javafx-maven-plugin</artifactId>
                 <version>0.0.8</version>
                 <configuration>
-                    <mainClass>com.mybank/com.mybank.Main</mainClass>
+                    <mainClass>CI401.mybank/CI401.mybank.Main</mainClass>
                 </configuration>
                 <executions>
                     <execution>
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>com.mybank/com.mybank.Main</mainClass>
+                            <mainClass>CI401.mybank/CI401.mybank.Main</mainClass>
                         </configuration>
                     </execution>
                 </executions>
@@ -79,7 +79,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>com.mybank.Main</mainClass>
+                            <mainClass>CI401.mybank.Main</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
@@ -98,7 +98,7 @@
                             <shadedArtifactAttached>true</shadedArtifactAttached>
                             <transformers>
                                 <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                    <mainClass>com.mybank.Main</mainClass>
+                                    <mainClass>CI401.mybank.Main</mainClass>
                                 </transformer>
                             </transformers>
                             <!-- Exclude signature files -->
