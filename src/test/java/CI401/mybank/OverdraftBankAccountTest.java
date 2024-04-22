@@ -3,8 +3,6 @@ package CI401.mybank;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import CI401.mybank.OverdraftBankAccount;
-
 public class OverdraftBankAccountTest {
 
     @Test

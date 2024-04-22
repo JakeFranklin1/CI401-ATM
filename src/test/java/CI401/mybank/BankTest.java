@@ -4,9 +4,6 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import CI401.mybank.Bank;
-import CI401.mybank.BankAccount;
-
 public class BankTest {
 
     private Bank bank;

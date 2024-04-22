@@ -3,8 +3,6 @@ package CI401.mybank;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import CI401.mybank.LimitedWithdrawalBankAccount;
-
 public class LimitedWithdrawalBankAccountTest {
 
     @Test

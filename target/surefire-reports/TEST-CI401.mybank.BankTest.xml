@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="CI401.mybank.BankTest" time="0.096" tests="3" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="CI401.mybank.BankTest" time="0.076" tests="3" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="21"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
@@ -12,7 +12,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="GB"/>
     <property name="sun.boot.library.path" value="/usr/local/Cellar/openjdk/21.0.2/libexec/openjdk.jdk/Contents/Home/lib"/>
-    <property name="sun.java.command" value="org.apache.maven.surefire.booter.ForkedBooter /Users/jake/ATM_Project/ProjectFiles/atm-test-two/target/surefire 2024-04-22T10-01-28_462-jvmRun1 surefire4114102764246157212tmp surefire_016008372990604349833tmp"/>
+    <property name="sun.java.command" value="org.apache.maven.surefire.booter.ForkedBooter /Users/jake/ATM_Project/ProjectFiles/atm-test-two/target/surefire 2024-04-22T12-50-32_758-jvmRun1 surefire9317710109054225735tmp surefire_015681663912846524172tmp"/>
     <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="/Users/jake/ATM_Project/ProjectFiles/atm-test-two/target/test-classes:/Users/jake/.m2/repository/org/openjfx/javafx-controls/22/javafx-controls-22.jar:/Users/jake/.m2/repository/org/openjfx/javafx-graphics/22/javafx-graphics-22.jar:/Users/jake/.m2/repository/org/openjfx/javafx-base/22/javafx-base-22.jar:/Users/jake/.m2/repository/org/openjfx/javafx-fxml/22/javafx-fxml-22.jar:/Users/jake/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.8.1/junit-jupiter-api-5.8.1.jar:/Users/jake/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/Users/jake/.m2/repository/org/junit/platform/junit-platform-commons/1.8.1/junit-platform-commons-1.8.1.jar:/Users/jake/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/Users/jake/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.8.1/junit-jupiter-engine-5.8.1.jar:/Users/jake/.m2/repository/org/junit/platform/junit-platform-engine/1.8.1/junit-platform-engine-1.8.1.jar:"/>
@@ -59,57 +59,57 @@
     <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="java.class.version" value="65.0"/>
   </properties>
-  <testcase name="testWithdraw_NotLoggedIn" classname="CI401.mybank.BankTest" time="0.069">
+  <testcase name="testWithdraw_NotLoggedIn" classname="CI401.mybank.BankTest" time="0.049">
     <system-out><![CDATA[Bank::<constructor>
 Bank::loadAccounts: Loading accounts from file
 Bank::addBankAccount: Adding bank account 1
 Bank::addBankAccount: added Account:1 Balance: £658
 Bank::addBankAccount: Adding bank account 2
-Bank::addBankAccount: added Account:2 Balance: £50
+Bank::addBankAccount: added Account:2 Balance: £0
 Bank::addBankAccount: Adding bank account 3
-Bank::addBankAccount: added Account:3 Balance: £13689
+Bank::addBankAccount: added Account:3 Balance: £13079
 Bank::addBankAccount: Adding bank account 4
 Bank::addBankAccount: added Account:4 Balance: £398
-Bank::addBankAccount: Adding bank account 69
-Bank::addBankAccount: added Account:69 Balance: £0
-Bank::addBankAccount: Adding bank account 694
-Bank::addBankAccount: added Account:694 Balance: £0
-Bank::addBankAccount: Adding bank account 6239
-Bank::addBankAccount: added Account:6239 Balance: £0
-Bank::addBankAccount: Adding bank account 64329
-Bank::addBankAccount: added Account:64329 Balance: £0
-Bank::addBankAccount: Adding bank account 63429
-Bank::addBankAccount: added Account:63429 Balance: £0
-Bank::addBankAccount: Adding bank account 6342429
-Bank::addBankAccount: added Account:6342429 Balance: £0
+Bank::addBankAccount: Adding bank account 5
+Bank::addBankAccount: added Account:5 Balance: £0
+Bank::addBankAccount: Adding bank account 6
+Bank::addBankAccount: added Account:6 Balance: £0
+Bank::addBankAccount: Adding bank account 7
+Bank::addBankAccount: added Account:7 Balance: £0
+Bank::addBankAccount: Adding bank account 8
+Bank::addBankAccount: added Account:8 Balance: £0
+Bank::addBankAccount: Adding bank account 9
+Bank::addBankAccount: added Account:9 Balance: £0
+Bank::addBankAccount: Adding bank account 10
+Bank::addBankAccount: added Account:10 Balance: £0
 Bank::addBankAccount: Adding bank account 123456
 Bank::addBankAccount: can't add bank account - too many accounts
 LocalBank::getBalance
 ]]></system-out>
   </testcase>
-  <testcase name="testAddBankAccount_MaxAccountsReached" classname="CI401.mybank.BankTest" time="0.01">
+  <testcase name="testAddBankAccount_MaxAccountsReached" classname="CI401.mybank.BankTest" time="0.008">
     <system-out><![CDATA[Bank::<constructor>
 Bank::loadAccounts: Loading accounts from file
 Bank::addBankAccount: Adding bank account 1
 Bank::addBankAccount: added Account:1 Balance: £658
 Bank::addBankAccount: Adding bank account 2
-Bank::addBankAccount: added Account:2 Balance: £50
+Bank::addBankAccount: added Account:2 Balance: £0
 Bank::addBankAccount: Adding bank account 3
-Bank::addBankAccount: added Account:3 Balance: £13689
+Bank::addBankAccount: added Account:3 Balance: £13079
 Bank::addBankAccount: Adding bank account 4
 Bank::addBankAccount: added Account:4 Balance: £398
-Bank::addBankAccount: Adding bank account 69
-Bank::addBankAccount: added Account:69 Balance: £0
-Bank::addBankAccount: Adding bank account 694
-Bank::addBankAccount: added Account:694 Balance: £0
-Bank::addBankAccount: Adding bank account 6239
-Bank::addBankAccount: added Account:6239 Balance: £0
-Bank::addBankAccount: Adding bank account 64329
-Bank::addBankAccount: added Account:64329 Balance: £0
-Bank::addBankAccount: Adding bank account 63429
-Bank::addBankAccount: added Account:63429 Balance: £0
-Bank::addBankAccount: Adding bank account 6342429
-Bank::addBankAccount: added Account:6342429 Balance: £0
+Bank::addBankAccount: Adding bank account 5
+Bank::addBankAccount: added Account:5 Balance: £0
+Bank::addBankAccount: Adding bank account 6
+Bank::addBankAccount: added Account:6 Balance: £0
+Bank::addBankAccount: Adding bank account 7
+Bank::addBankAccount: added Account:7 Balance: £0
+Bank::addBankAccount: Adding bank account 8
+Bank::addBankAccount: added Account:8 Balance: £0
+Bank::addBankAccount: Adding bank account 9
+Bank::addBankAccount: added Account:9 Balance: £0
+Bank::addBankAccount: Adding bank account 10
+Bank::addBankAccount: added Account:10 Balance: £0
 Bank::addBankAccount: Adding bank account 0
 Bank::addBankAccount: can't add bank account - too many accounts
 Bank::addBankAccount: Adding bank account 1
@@ -134,29 +134,29 @@ Bank::addBankAccount: Adding bank account 999999
 Bank::addBankAccount: can't add bank account - too many accounts
 ]]></system-out>
   </testcase>
-  <testcase name="testDeposit_NotLoggedIn" classname="CI401.mybank.BankTest" time="0.01">
+  <testcase name="testDeposit_NotLoggedIn" classname="CI401.mybank.BankTest" time="0.012">
     <system-out><![CDATA[Bank::<constructor>
 Bank::loadAccounts: Loading accounts from file
 Bank::addBankAccount: Adding bank account 1
 Bank::addBankAccount: added Account:1 Balance: £658
 Bank::addBankAccount: Adding bank account 2
-Bank::addBankAccount: added Account:2 Balance: £50
+Bank::addBankAccount: added Account:2 Balance: £0
 Bank::addBankAccount: Adding bank account 3
-Bank::addBankAccount: added Account:3 Balance: £13689
+Bank::addBankAccount: added Account:3 Balance: £13079
 Bank::addBankAccount: Adding bank account 4
 Bank::addBankAccount: added Account:4 Balance: £398
-Bank::addBankAccount: Adding bank account 69
-Bank::addBankAccount: added Account:69 Balance: £0
-Bank::addBankAccount: Adding bank account 694
-Bank::addBankAccount: added Account:694 Balance: £0
-Bank::addBankAccount: Adding bank account 6239
-Bank::addBankAccount: added Account:6239 Balance: £0
-Bank::addBankAccount: Adding bank account 64329
-Bank::addBankAccount: added Account:64329 Balance: £0
-Bank::addBankAccount: Adding bank account 63429
-Bank::addBankAccount: added Account:63429 Balance: £0
-Bank::addBankAccount: Adding bank account 6342429
-Bank::addBankAccount: added Account:6342429 Balance: £0
+Bank::addBankAccount: Adding bank account 5
+Bank::addBankAccount: added Account:5 Balance: £0
+Bank::addBankAccount: Adding bank account 6
+Bank::addBankAccount: added Account:6 Balance: £0
+Bank::addBankAccount: Adding bank account 7
+Bank::addBankAccount: added Account:7 Balance: £0
+Bank::addBankAccount: Adding bank account 8
+Bank::addBankAccount: added Account:8 Balance: £0
+Bank::addBankAccount: Adding bank account 9
+Bank::addBankAccount: added Account:9 Balance: £0
+Bank::addBankAccount: Adding bank account 10
+Bank::addBankAccount: added Account:10 Balance: £0
 Bank::addBankAccount: Adding bank account 123456
 Bank::addBankAccount: can't add bank account - too many accounts
 LocalBank::getBalance
