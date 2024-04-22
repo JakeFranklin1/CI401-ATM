@@ -18,8 +18,6 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
 import javafx.scene.control.Label;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
 /**
  * Controller class for the bank application.
@@ -99,18 +97,10 @@ public class Controller {
     /**
      * Updates the date and time labels with the current date and time.
      */
-    // This method is used to update the date and time
     private void updateDateTime() {
-        // Get the current date and time
-        LocalDateTime now = LocalDateTime.now();
-
-        DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yy"); // Create a formatter for the date
-        String date = now.format(dateFormatter); // Format the current date
-        dateLabel.setText(date); // Set the formatted date to the dateLabel
-
-        DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm");
-        String time = now.format(timeFormatter);
-        timeLabel.setText(time);
+        String[] dateTime = DateTimeUtils.getCurrentDateTime();
+        dateLabel.setText(dateTime[0]);
+        timeLabel.setText(dateTime[1]);
     }
 
     /**

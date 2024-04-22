@@ -117,6 +117,10 @@ public class Bank {
 
     public void logTransaction(int accNumber, String transactionType, int amount, int newBalance) {
         try {
+            String[] dateTime = DateTimeUtils.getCurrentDateTime();
+            String date = dateTime[0];
+            String time = dateTime[1];
+
             Debug.trace("Bank::logTransaction: Logging transaction for account %d", accNumber);
             File file = new File(transactionsFile);
             boolean isNewFile = file.createNewFile(); // This will create the file if it does not exist and return true
@@ -124,10 +128,11 @@ public class Bank {
             try (FileWriter csvWriter = new FileWriter(file, true)) {
                 // Write the headers if the file is new
                 if (isNewFile) {
-                    csvWriter.append("accNumber,transactionType,amount,newBalance\n"); // Write the headers
+                    csvWriter.append("accNumber,transactionType,amount,newBalance,date,time\n"); // Write the headers
                 }
 
-                String csvLine = String.format("%d,%s,%d,%d\n", accNumber, transactionType, amount, newBalance);
+                String csvLine = String.format("%d,%s,%d,%d,%s,%s\n", accNumber, transactionType, amount, newBalance,
+                        date, time);
                 // Append the transaction to the file
                 csvWriter.append(csvLine);
                 // Flush the writer to ensure the data is written to the file and not stored in
