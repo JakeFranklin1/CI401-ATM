@@ -1,4 +1,0 @@
---patch-module
-com.mybank=_
---add-reads
-com.mybank=ALL-UNNAMED
