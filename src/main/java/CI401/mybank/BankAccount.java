@@ -111,9 +111,12 @@ public class BankAccount {
                 if (Integer.parseInt(parts[0]) != this.accNumber) {
                     continue; // Skip lines that are not for the current account
                 }
-                String formattedLine = "Transaction type: " + parts[1] + "\nAmount: "
-                        + Model.formatBalance(Integer.parseInt(parts[2])) + "\nNew Balance: "
-                        + Model.formatBalance(Integer.parseInt(parts[3]));
+                String formattedLine = "Transaction Type: " + parts[1] 
+                    + "\nAmount: " + Model.formatBalance(Integer.parseInt(parts[2])) 
+                    + "\nNew Balance: " + Model.formatBalance(Integer.parseInt(parts[3]))
+                    + "\nTransaction Date: " + parts[4]
+                    + "\nTransaction Time: " + parts[5];
+
                 lastFiveLines.add(formattedLine);
                 if (lastFiveLines.size() > 5) {
                     lastFiveLines.remove(0); // Remove the oldest line if more than 5 lines
