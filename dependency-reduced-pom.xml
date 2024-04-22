@@ -76,6 +76,7 @@
         <artifactId>maven-javadoc-plugin</artifactId>
         <version>3.6.3</version>
         <configuration>
+          <sourcepath>src/main/java</sourcepath>
           <show>private</show>
           <nohelp>true</nohelp>
         </configuration>
@@ -126,6 +127,7 @@
         <artifactId>maven-javadoc-plugin</artifactId>
         <version>3.6.3</version>
         <configuration>
+          <sourcepath>src/main/java</sourcepath>
           <stylesheetfile>${basedir}/src/main/javadoc/stylesheet.css</stylesheetfile>
           <show>public</show>
         </configuration>

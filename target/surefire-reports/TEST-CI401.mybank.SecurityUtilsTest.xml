@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="CI401.mybank.SecurityUtilsTest" time="2.377" tests="3" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="CI401.mybank.SecurityUtilsTest" time="2.438" tests="3" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="21"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
@@ -12,7 +12,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="GB"/>
     <property name="sun.boot.library.path" value="/usr/local/Cellar/openjdk/21.0.2/libexec/openjdk.jdk/Contents/Home/lib"/>
-    <property name="sun.java.command" value="org.apache.maven.surefire.booter.ForkedBooter /Users/jake/ATM_Project/ProjectFiles/atm-test-two/target/surefire 2024-04-22T15-37-55_498-jvmRun1 surefire505594368352097860tmp surefire_09588841757752919120tmp"/>
+    <property name="sun.java.command" value="org.apache.maven.surefire.booter.ForkedBooter /Users/jake/ATM_Project/ProjectFiles/atm-test-two/target/surefire 2024-04-22T17-53-48_758-jvmRun1 surefire8399563012973634837tmp surefire_01198133101013388583tmp"/>
     <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="/Users/jake/ATM_Project/ProjectFiles/atm-test-two/target/test-classes:/Users/jake/.m2/repository/org/openjfx/javafx-controls/22/javafx-controls-22.jar:/Users/jake/.m2/repository/org/openjfx/javafx-graphics/22/javafx-graphics-22.jar:/Users/jake/.m2/repository/org/openjfx/javafx-base/22/javafx-base-22.jar:/Users/jake/.m2/repository/org/openjfx/javafx-fxml/22/javafx-fxml-22.jar:/Users/jake/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.8.1/junit-jupiter-api-5.8.1.jar:/Users/jake/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/Users/jake/.m2/repository/org/junit/platform/junit-platform-commons/1.8.1/junit-platform-commons-1.8.1.jar:/Users/jake/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/Users/jake/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.8.1/junit-jupiter-engine-5.8.1.jar:/Users/jake/.m2/repository/org/junit/platform/junit-platform-engine/1.8.1/junit-platform-engine-1.8.1.jar:"/>
@@ -59,16 +59,16 @@
     <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="java.class.version" value="65.0"/>
   </properties>
-  <testcase name="testCheckPasswordInvalid" classname="CI401.mybank.SecurityUtilsTest" time="1.071">
+  <testcase name="testCheckPasswordInvalid" classname="CI401.mybank.SecurityUtilsTest" time="1.14">
     <system-out><![CDATA[Check password invalid result: false
 ]]></system-out>
   </testcase>
-  <testcase name="testCheckPasswordValid" classname="CI401.mybank.SecurityUtilsTest" time="0.852">
+  <testcase name="testCheckPasswordValid" classname="CI401.mybank.SecurityUtilsTest" time="0.847">
     <system-out><![CDATA[Check password valid result: true
 ]]></system-out>
   </testcase>
-  <testcase name="testHashPassword" classname="CI401.mybank.SecurityUtilsTest" time="0.429">
-    <system-out><![CDATA[Hashed password: $2y$12$MtYIMWL/Ge8sHEu3RiQUfej1.YDV/DU8E5Xj9h7l54JYwn2Wc9H5a
+  <testcase name="testHashPassword" classname="CI401.mybank.SecurityUtilsTest" time="0.431">
+    <system-out><![CDATA[Hashed password: $2y$12$W/eDyU4mdx4pXarYXCMOOeI/Klocp.DXpxJH2P2OZk3PMd74G2Pb6
 ]]></system-out>
   </testcase>
 </testsuite>
