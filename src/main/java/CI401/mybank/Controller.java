@@ -2,6 +2,9 @@ package CI401.mybank;
 
 import java.io.IOException;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
+import javafx.util.Duration;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.event.ActionEvent;
@@ -79,10 +82,17 @@ public class Controller {
     }
 
     /**
-     * Initializes the controller by updating the date and time. using the
-     * updateDateTime method.
+     * Initializes the controller by setting up a recurring task to update the date
+     * and time every minute.
+     * This is done using the updateDateTime method and a JavaFX Timeline for
+     * scheduling.
      */
     public void initialise() {
+        // Create a new Timeline that triggers every second, making sure the clock
+        // is always correct.
+        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1), event -> updateDateTime()));
+        timeline.setCycleCount(Timeline.INDEFINITE);
+        timeline.play();
         updateDateTime();
     }
 
@@ -231,7 +241,7 @@ public class Controller {
     /**
      * Handles password changes.
      * Checks if the current password is correct, if the new password and confirmed
-     * password match, and if the new password is different from 
+     * password match, and if the new password is different from
      * the current password.
      * Displays an alert based on the result.
      */
