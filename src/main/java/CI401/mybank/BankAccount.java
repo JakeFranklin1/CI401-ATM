@@ -103,7 +103,7 @@ public class BankAccount {
                     continue; // Skip the header line
                 }
                 String[] parts = line.split(",");
-                if (parts.length < 4) {
+                if (parts.length < 6) {
                     continue; // Skip lines that don't have enough parts
                 }
                 // Check if the account number in the line matches the account number of the
