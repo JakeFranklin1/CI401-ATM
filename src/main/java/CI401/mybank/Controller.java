@@ -29,9 +29,9 @@ import javafx.scene.control.Label;
  */
 public class Controller {
 
-    private Stage window;
     public View view;
     private Model model;
+    private Stage window;
 
     /**
      * Sets the model for this controller.
@@ -91,6 +91,7 @@ public class Controller {
         Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1), event -> updateDateTime()));
         timeline.setCycleCount(Timeline.INDEFINITE);
         timeline.play();
+
         updateDateTime();
     }
 
@@ -99,6 +100,7 @@ public class Controller {
      */
     private void updateDateTime() {
         String[] dateTime = DateTimeUtils.getCurrentDateTime();
+
         dateLabel.setText(dateTime[0]);
         timeLabel.setText(dateTime[1]);
     }
@@ -324,6 +326,7 @@ public class Controller {
      */
     public void showAlert(AlertType alertType, String title, String content) {
         Alert alert = new Alert(alertType);
+        
         alert.setTitle(title);
         alert.setHeaderText(null); // Header is not used in this version of the method
         alert.setContentText(content);

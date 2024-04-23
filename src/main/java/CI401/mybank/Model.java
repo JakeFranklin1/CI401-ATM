@@ -100,6 +100,7 @@ public class Model {
         Debug.trace("model::initialise");
         setState(LOGGED_IN);
         number = 0;
+
         display1 = "";
         display2 = message + "\nPlease choose from one of the six options.";
         display();
@@ -428,9 +429,11 @@ public class Model {
     public void processBalance() {
         Debug.trace("Model::processBalance");
         if (state.equals(LOGGED_IN)) {
+
             display1 = "";
             display2 = "Your balance is: " + formatBalance(bank.getBalance());
             number = 0;
+
         } else if (!state.equals(LOGGED_IN)) {
             // User is in a transaction
             display2 += "\nYou're already in a transaction. Please either finish or cancel it before starting a new one.";
@@ -454,6 +457,7 @@ public class Model {
             targetAccountNumber = -1;
             number = 0;
             setState(ENTERING_ACCOUNT);
+
             display1 = "Enter target account";
             display2 = "Please enter the target account number above\nYour current balance is : "
                     + formatBalance(bank.getBalance());
@@ -479,16 +483,20 @@ public class Model {
             // User has entered the target account number
             number = 0;
             setState(TRANSFERRING);
+
             display1 = "Enter transfer amount";
             display2 = "Your current balance is : " + formatBalance(bank.getBalance());
+
         } else if (state.equals(TRANSFERRING)) {
             // User has entered the transfer amount
             if (bank.transfer(accNumber, targetAccountNumber, number)) {
                 // Transfer successful
                 setState(LOGGED_IN);
+
                 display1 = "";
                 display2 = "Transfer successful\n£" + number + " has been transferred to account No."
                         + targetAccountNumber + "\n" + "Your new balance is now: " + formatBalance(bank.getBalance());
+
                 targetAccountNumber = -1;
             } else {
                 // Transfer failed
@@ -530,8 +538,10 @@ public class Model {
         Debug.trace("Model::processStatement");
         if (state.equals(LOGGED_IN)) {
             number = 0;
+            
             display1 = "Statement printed.";
             display2 = bank.getStatement();
+
         } else if (!state.equals(LOGGED_IN)) {
             // User is in a transaction
             display2 += "\nYou're already in a transaction. Please either finish or cancel it before starting a new one.";

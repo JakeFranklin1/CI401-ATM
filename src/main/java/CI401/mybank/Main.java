@@ -13,10 +13,12 @@ import javafx.application.Platform;
 
 public class Main {
     public static void main(String[] args) {
+
         Debug.trace("Main::Starting Program");
         // This is to make sure the program closes when the last window is closed
         // otherwise it will keep running in the background and produce an error.
         Platform.setImplicitExit(true);
         App.main(args);
+        
     }
 }

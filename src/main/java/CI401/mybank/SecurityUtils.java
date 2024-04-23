@@ -4,12 +4,13 @@ import org.bouncycastle.crypto.generators.OpenBSDBCrypt;
 
 /**
  * The SecurityUtils class provides methods for hashing and checking passwords
- * using OpenBSDBCrypt algorithm.
  */
 public class SecurityUtils {
 
     /**
      * Hashes the given password using OpenBSDBCrypt algorithm.
+     * The hashed password is generated using a random salt and a cost of 12.
+     * The salt and cost are stored in the hashed password.
      *
      * @param password the password to be hashed
      * @return the hashed password

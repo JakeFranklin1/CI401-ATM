@@ -49,6 +49,7 @@ public class Bank {
                 // Associate the given values with the account fields
                 String[] values = line.split(",");
                 try {
+
                     int accNumber = Integer.parseInt(values[0]);
                     String accPasswd = values[1]; // Decrypt the password here
                     int balance = Integer.parseInt(values[2]);
@@ -66,6 +67,7 @@ public class Bank {
                         default:
                             addBankAccount(accNumber, accPasswd, balance);
                             break;
+
                     }
                 } catch (Exception e) {
                     Debug.trace("Bank::loadAccounts: Error parsing account data: " + e.getMessage());
@@ -82,10 +84,12 @@ public class Bank {
 
     private void saveAccounts() {
         try (PrintWriter pw = new PrintWriter(new FileWriter(accountsFile))) {
+
             String accountType = "";
             String extraInfo = "";
 
             pw.println("Account Number,Password,Balance,Account Type,Overdraft Limit"); // Header line
+
             for (BankAccount a : accounts) {
                 if (a instanceof OverdraftBankAccount) {
                     accountType = "overdraft";
@@ -117,6 +121,7 @@ public class Bank {
 
     public void logTransaction(int accNumber, String transactionType, int amount, int newBalance) {
         try {
+
             String[] dateTime = DateTimeUtils.getCurrentDateTime();
             String date = dateTime[0];
             String time = dateTime[1];
@@ -124,6 +129,7 @@ public class Bank {
             Debug.trace("Bank::logTransaction: Logging transaction for account %d", accNumber);
             File file = new File(transactionsFile);
             boolean isNewFile = file.createNewFile(); // This will create the file if it does not exist and return true
+
             // Open the file in append mode
             try (FileWriter csvWriter = new FileWriter(file, true)) {
                 // Write the headers if the file is new
@@ -154,10 +160,12 @@ public class Bank {
     public boolean addBankAccount(BankAccount a) {
         Debug.trace("Bank::addBankAccount: Adding bank account %d", a.accNumber);
         if (accounts.size() < maxAccounts) {
+
             accounts.add(a);
             Debug.trace("Bank::addBankAccount: added Account:" + a.accNumber + " Balance: £" + a.balance);
             saveAccounts();
             return true;
+
         } else {
             Debug.trace("Bank::addBankAccount: can't add bank account - too many accounts");
             return false;
@@ -200,8 +208,10 @@ public class Bank {
 
         for (BankAccount b : accounts) {
             if (b.accNumber == newAccNumber) {
+
                 String storedPasswordHash = b.accPasswd;
                 boolean passwordMatches = SecurityUtils.checkPassword(storedPasswordHash, newAccPasswd);
+
                 if (passwordMatches) {
                     Debug.trace("Bank::login: logged in, accNumber = " + newAccNumber + " balance = " + b.getBalance());
                     account = b;
@@ -271,8 +281,10 @@ public class Bank {
             Debug.trace("Bank::withdraw: Withdrawing %d", amount);
             boolean result = account.withdraw(amount);
             if (result) {
+
                 saveAccounts();
                 logTransaction(account.accNumber, "withdraw", amount, account.getBalance());
+
             }
             return result;
         } else {
@@ -363,13 +375,17 @@ public class Bank {
         Debug.trace("Bank::updatePassword: Attempting to update password for account %d", accNumber);
         for (BankAccount acc : accounts) {
             if (acc != null && acc.accNumber == accNumber) {
+
                 Debug.trace("Bank::updatePassword: Found account %d", accNumber);
+                
                 String newHashedPassword = SecurityUtils.hashPassword(newPassword);
                 acc.accPasswd = newHashedPassword;
                 Debug.trace("Bank::updatePassword: Successfully updated password");
+
                 saveAccounts();
                 Debug.trace("Bank::updatePassword: Saved accounts to file");
                 return true; // Password updated successfully
+
             }
         }
         Debug.trace("Bank::updatePassword: Failed to find account %d", accNumber);

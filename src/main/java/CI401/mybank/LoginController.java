@@ -45,6 +45,7 @@ public class LoginController {
         // Get the account number and password from the text fields
         String accountNumber = accountField.getText();
         String password = passwordField.getText();
+        
         // Create a Bank object
         Bank b = new Bank();
         if (b.login(Integer.parseInt(accountNumber), password)) {
@@ -59,6 +60,7 @@ public class LoginController {
                 loader.setController(controller); // Set the controller
                 // Load FXML scene
                 Parent root = loader.load();
+
                 Scene scene = new Scene(root);
                 Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 stage.setScene(scene);
@@ -69,13 +71,16 @@ public class LoginController {
 
                 Model model = new Model(b); // the model needs the Bank object to 'talk to' the bank
                 View view = new View();
+
                 // Set the model and view for the controller
                 controller.setModel(model);
                 controller.setView(view, stage);
                 controller.initialise();
+
                 // Set the controller for the model and view
                 model.setController(controller);
                 view.setController(controller);
+
                 // Set the state of the model and the account.
                 model.setAccount(Integer.parseInt(accountNumber), password);
                 controller.update("Welcome to the ATM", "");
@@ -85,6 +90,7 @@ public class LoginController {
             }
         } else {
             Debug.trace("LoginController::handleLoginAction:: Login failed for account number: " + accountNumber);
+
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Login Error");
             alert.setHeaderText("Login failed");

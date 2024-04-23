@@ -46,7 +46,6 @@ public class BankAccount {
         Debug.trace("BankAccount::withdraw: amount = £" + amount);
         System.out.println("\n Printing from BankAccount Class \n");
 
-        // CHANGE CODE HERE TO WITHDRAW MONEY FROM THE ACCOUNT
         if (amount < 0 || balance < amount) {
             return false;
         } else {
@@ -64,7 +63,7 @@ public class BankAccount {
 
     public boolean deposit(int amount) {
         Debug.trace("LocalBank::deposit: amount = £" + amount);
-        // CHANGE CODE HERE TO DEPOSIT MONEY INTO THE ACCOUNT
+
         if (amount < 0) {
             return false;
         } else {
@@ -95,8 +94,10 @@ public class BankAccount {
         Debug.trace("LocalBank::statement");
         List<String> lastFiveLines = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader("CSV/transaction_history.csv"))) {
+
             String line;
             boolean isFirstLine = true; // Flag to skip the header line
+
             while ((line = br.readLine()) != null) {
                 if (isFirstLine) {
                     isFirstLine = false;
@@ -111,6 +112,7 @@ public class BankAccount {
                 if (Integer.parseInt(parts[0]) != this.accNumber) {
                     continue; // Skip lines that are not for the current account
                 }
+
                 String formattedLine = "Transaction Type: " + parts[1] 
                     + "\nAmount: " + Model.formatBalance(Integer.parseInt(parts[2])) 
                     + "\nNew Balance: " + Model.formatBalance(Integer.parseInt(parts[3]))
