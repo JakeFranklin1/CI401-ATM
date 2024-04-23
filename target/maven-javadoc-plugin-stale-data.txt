@@ -1,33 +1,34 @@
 @options
 @argfile
 --class-path
-'/Users/jake/ATM_Project/ProjectFiles/atm-test-two/target/test-classes:/Users/jake/.m2/repository/org/openjfx/javafx-controls/22/javafx-controls-22.jar:/Users/jake/.m2/repository/org/openjfx/javafx-graphics/22/javafx-graphics-22.jar:/Users/jake/.m2/repository/org/openjfx/javafx-base/22/javafx-base-22.jar:/Users/jake/.m2/repository/org/openjfx/javafx-fxml/22/javafx-fxml-22.jar:/Users/jake/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.8.1/junit-jupiter-api-5.8.1.jar:/Users/jake/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/Users/jake/.m2/repository/org/junit/platform/junit-platform-commons/1.8.1/junit-platform-commons-1.8.1.jar:/Users/jake/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/Users/jake/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.8.1/junit-jupiter-engine-5.8.1.jar:/Users/jake/.m2/repository/org/junit/platform/junit-platform-engine/1.8.1/junit-platform-engine-1.8.1.jar'
+'/Users/jake/.m2/repository/org/openjfx/javafx-controls/22/javafx-controls-22.jar:/Users/jake/.m2/repository/org/openjfx/javafx-graphics/22/javafx-graphics-22.jar:/Users/jake/.m2/repository/org/openjfx/javafx-base/22/javafx-base-22.jar:/Users/jake/.m2/repository/org/openjfx/javafx-fxml/22/javafx-fxml-22.jar'
 --module-path
 '/Users/jake/.m2/repository/org/bouncycastle/bcprov-jdk15on/1.70/bcprov-jdk15on-1.70.jar:/Users/jake/ATM_Project/ProjectFiles/atm-test-two/target/classes:/Users/jake/.m2/repository/org/openjfx/javafx-fxml/22/javafx-fxml-22-mac.jar:/Users/jake/.m2/repository/org/openjfx/javafx-controls/22/javafx-controls-22-mac.jar:/Users/jake/.m2/repository/org/openjfx/javafx-graphics/22/javafx-graphics-22-mac.jar:/Users/jake/.m2/repository/org/openjfx/javafx-base/22/javafx-base-22-mac.jar'
 --patch-module
 com.mybank='/Users/jake/ATM_Project/ProjectFiles/atm-test-two/src/main/java'
 -encoding
 'UTF-8'
--public
+-private
 -source
 '17'
 --module-source-path
-'/Users/jake/ATM_Project/ProjectFiles/atm-test-two/target/site/testapidocs/src'
+'/Users/jake/ATM_Project/ProjectFiles/atm-test-two/target/site/apidocs/src'
 -author
 -bottom
 'Copyright &#169; 2024. All rights reserved.'
 -charset
 'UTF-8'
 -d
-'/Users/jake/ATM_Project/ProjectFiles/atm-test-two/target/site/testapidocs'
+'/Users/jake/ATM_Project/ProjectFiles/atm-test-two/target/site/apidocs'
 -docencoding
 'UTF-8'
 -doctitle
-'atm-test-two 1.0-SNAPSHOT Test API'
+'atm-test-two 1.0-SNAPSHOT API'
+-nohelp
 -use
 -version
 -windowtitle
-'atm-test-two 1.0-SNAPSHOT Test API'
+'atm-test-two 1.0-SNAPSHOT API'
 '/Users/jake/ATM_Project/ProjectFiles/atm-test-two/src/main/java/module-info.java'
 '/Users/jake/ATM_Project/ProjectFiles/atm-test-two/src/main/java/CI401/mybank/OverdraftBankAccount.java'
 '/Users/jake/ATM_Project/ProjectFiles/atm-test-two/src/main/java/CI401/mybank/LimitedWithdrawalBankAccount.java'
@@ -42,23 +43,23 @@ com.mybank='/Users/jake/ATM_Project/ProjectFiles/atm-test-two/src/main/java'
 '/Users/jake/ATM_Project/ProjectFiles/atm-test-two/src/main/java/CI401/mybank/App.java'
 '/Users/jake/ATM_Project/ProjectFiles/atm-test-two/src/main/java/CI401/mybank/LoginController.java'
 '/Users/jake/ATM_Project/ProjectFiles/atm-test-two/src/main/java/CI401/mybank/Model.java'
-/Users/jake/ATM_Project/ProjectFiles/atm-test-two/target/site/testapidocs/constant-values.html = 1713806698325
-/Users/jake/ATM_Project/ProjectFiles/atm-test-two/target/site/testapidocs/tag-search-index.js = 1713806698432
-/Users/jake/ATM_Project/ProjectFiles/atm-test-two/target/site/testapidocs/overview-tree.html = 1713806698399
-/Users/jake/ATM_Project/ProjectFiles/atm-test-two/target/site/testapidocs/module-search-index.js = 1713806698429
-/Users/jake/ATM_Project/ProjectFiles/atm-test-two/target/site/testapidocs/index.html = 1713806698475
-/Users/jake/ATM_Project/ProjectFiles/atm-test-two/target/site/testapidocs/package-search-index.js = 1713806698429
-/Users/jake/ATM_Project/ProjectFiles/atm-test-two/target/site/testapidocs/link.svg = 1713806698488
-/Users/jake/ATM_Project/ProjectFiles/atm-test-two/target/site/testapidocs/index-all.html = 1713806698469
-/Users/jake/ATM_Project/ProjectFiles/atm-test-two/target/site/testapidocs/allpackages-index.html = 1713806698428
-/Users/jake/ATM_Project/ProjectFiles/atm-test-two/target/site/testapidocs/member-search-index.js = 1713806698431
-/Users/jake/ATM_Project/ProjectFiles/atm-test-two/target/site/testapidocs/copy.svg = 1713806698487
-/Users/jake/ATM_Project/ProjectFiles/atm-test-two/target/site/testapidocs/script.js = 1713806698486
-/Users/jake/ATM_Project/ProjectFiles/atm-test-two/target/site/testapidocs/stylesheet.css = 1713806698485
-/Users/jake/ATM_Project/ProjectFiles/atm-test-two/target/site/testapidocs/search-page.js = 1713806698493
-/Users/jake/ATM_Project/ProjectFiles/atm-test-two/target/site/testapidocs/help-doc.html = 1713806698482
-/Users/jake/ATM_Project/ProjectFiles/atm-test-two/target/site/testapidocs/element-list = 1713806698279
-/Users/jake/ATM_Project/ProjectFiles/atm-test-two/target/site/testapidocs/search.html = 1713806698473
-/Users/jake/ATM_Project/ProjectFiles/atm-test-two/target/site/testapidocs/allclasses-index.html = 1713806698426
-/Users/jake/ATM_Project/ProjectFiles/atm-test-two/target/site/testapidocs/type-search-index.js = 1713806698430
-/Users/jake/ATM_Project/ProjectFiles/atm-test-two/target/site/testapidocs/search.js = 1713806698490
+/Users/jake/ATM_Project/ProjectFiles/atm-test-two/target/site/apidocs/constant-values.html = 1713870150239
+/Users/jake/ATM_Project/ProjectFiles/atm-test-two/target/site/apidocs/tag-search-index.js = 1713870150309
+/Users/jake/ATM_Project/ProjectFiles/atm-test-two/target/site/apidocs/overview-tree.html = 1713870150286
+/Users/jake/ATM_Project/ProjectFiles/atm-test-two/target/site/apidocs/module-search-index.js = 1713870150307
+/Users/jake/ATM_Project/ProjectFiles/atm-test-two/target/site/apidocs/index.html = 1713870150344
+/Users/jake/ATM_Project/ProjectFiles/atm-test-two/target/site/apidocs/package-search-index.js = 1713870150307
+/Users/jake/ATM_Project/ProjectFiles/atm-test-two/target/site/apidocs/link.svg = 1713870150347
+/Users/jake/ATM_Project/ProjectFiles/atm-test-two/target/site/apidocs/index-all.html = 1713870150340
+/Users/jake/ATM_Project/ProjectFiles/atm-test-two/target/site/apidocs/allpackages-index.html = 1713870150306
+/Users/jake/ATM_Project/ProjectFiles/atm-test-two/target/site/apidocs/member-search-index.js = 1713870150308
+/Users/jake/ATM_Project/ProjectFiles/atm-test-two/target/site/apidocs/copy.svg = 1713870150347
+/Users/jake/ATM_Project/ProjectFiles/atm-test-two/target/site/apidocs/script.js = 1713870150346
+/Users/jake/ATM_Project/ProjectFiles/atm-test-two/target/site/apidocs/stylesheet.css = 1713870150345
+/Users/jake/ATM_Project/ProjectFiles/atm-test-two/target/site/apidocs/search-page.js = 1713870150350
+/Users/jake/ATM_Project/ProjectFiles/atm-test-two/target/site/apidocs/help-doc.html = 1713870137300
+/Users/jake/ATM_Project/ProjectFiles/atm-test-two/target/site/apidocs/element-list = 1713870150031
+/Users/jake/ATM_Project/ProjectFiles/atm-test-two/target/site/apidocs/search.html = 1713870150342
+/Users/jake/ATM_Project/ProjectFiles/atm-test-two/target/site/apidocs/allclasses-index.html = 1713870150304
+/Users/jake/ATM_Project/ProjectFiles/atm-test-two/target/site/apidocs/type-search-index.js = 1713870150307
+/Users/jake/ATM_Project/ProjectFiles/atm-test-two/target/site/apidocs/search.js = 1713870150349
