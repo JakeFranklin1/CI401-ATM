@@ -284,7 +284,7 @@
       </AnchorPane>
       <AnchorPane layoutX="720.0" layoutY="15.0" prefHeight="560.0" prefWidth="270.0" style="-fx-border-color: black; -fx-background-color: white;">
          <children>
-            <Label fx:id="passwordHelpLabel" layoutX="7.0" layoutY="176.0" prefHeight="380.0" prefWidth="255.0" text="Protect Your Password:&#10;&#10;1. Keep your Password confidential. Never share it with anyone, not even bank staff.&#10;2. Avoid using easily guessable Passwords such as birthdays or names.&#10;&#10;For assistance or concerns, contact our Customer Service Team:&#10;support@bank.com&#10;We're here to help!" wrapText="true">
+            <Label fx:id="passwordHelpLabel" layoutX="7.0" layoutY="229.0" prefHeight="327.0" prefWidth="255.0" text="Protect Your Password:&#10;&#10;1. Keep your Password confidential. Never share it with anyone, not even bank staff.&#10;2. Avoid using easily guessable Passwords such as birthdays or names.&#10;&#10;For assistance or concerns, contact our Customer Service Team:&#10;support@bank.com&#10;We're here to help!" wrapText="true">
                <font>
                   <Font size="16.0" />
                </font>
