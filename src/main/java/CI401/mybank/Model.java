@@ -229,10 +229,9 @@ public class Model {
         // Check if the overdraft is a positive number
         if (overdraft.matches("^[0-9]+$")) {
             int overdraftInt = Integer.parseInt(overdraft);
-
             // Check if the overdraft is greater than the current balance only if the
             // account is in its overdraft
-            if (bank.getBalance() < 0 && overdraftInt <= bank.getBalance()) {
+            if (bank.getBalance() < 0 && overdraftInt <= Math.abs(bank.getBalance())) {
                 return 2; // Overdraft must be greater than the current balance
             }
 
