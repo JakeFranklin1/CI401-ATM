@@ -308,6 +308,10 @@ public class Controller {
                 alertText = "This account does not have an overdraft facility.";
                 alertType = AlertType.ERROR;
                 break;
+            case 4:
+                alertText = "Overdraft cannot be above 1,000.";
+                alertType = AlertType.ERROR;
+                break;
             default:
                 alertText = "Overdraft change failed due to a general error, try again later.";
                 alertType = AlertType.ERROR;
@@ -326,7 +330,7 @@ public class Controller {
      */
     public void showAlert(AlertType alertType, String title, String content) {
         Alert alert = new Alert(alertType);
-        
+
         alert.setTitle(title);
         alert.setHeaderText(null); // Header is not used in this version of the method
         alert.setContentText(content);

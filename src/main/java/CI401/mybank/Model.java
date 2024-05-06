@@ -43,10 +43,18 @@ public class Model {
     final String TRANSFERRING = "transferring";
     final String ENTERING_ACCOUNT = "enteringAccount";
 
+    // Constants representing different status codes for password change and
+    // overdraft
     public static final int PASSWORD_UPDATED = 0;
     public static final int PASSWORD_INCORRECT = 1;
     public static final int PASSWORD_MISMATCH = 2;
     public static final int PASSWORD_SAME = 3;
+
+    public static final int OVERDRAFT_UPDATED = 0;
+    public static final int OVERDRAFT_INVALID = 1;
+    public static final int OVERDRAFT_EXCEEDS_BALANCE = 2;
+    public static final int OVERDRAFT_NO_FACILITY = 3;
+    public static final int OVERDRAFT_EXCEEDS_LIMIT = 4;
 
     // variables representing the ATM model
     String state = LOGGED_IN; // The current state of the ATM.
@@ -219,32 +227,41 @@ public class Model {
     }
 
     /**
-     * Changes the overdraft limit of the account.
-     * 
-     * @param overdraft The new overdraft limit to be set.
-     * @return The status of the overdraft change operation.
+     * Changes the overdraft limit of the bank account.
+     *
+     * @param overdraft The new overdraft limit as a string.
+     * @return An integer representing the result of the operation.
      */
     public int changeOverdraft(String overdraft) {
         Debug.trace("Model::changeOverdraft");
-        // Check if the overdraft is a positive number
+
+        // Using Regex to check if the overdraft string is a positive integer
         if (overdraft.matches("^[0-9]+$")) {
+            // Convert the overdraft string to an integer
             int overdraftInt = Integer.parseInt(overdraft);
-            // Check if the overdraft is greater than the current balance only if the
-            // account is in its overdraft
+
+            // Check if the overdraft is more than 1000
+            if (overdraftInt > 1000) {
+                return OVERDRAFT_EXCEEDS_LIMIT;
+            }
+            // If the account balance is negative (i.e., in overdraft) and the new overdraft limit
+            // is less than or equal to the absolute value of the balance, return an error code
             if (bank.getBalance() < 0 && overdraftInt <= Math.abs(bank.getBalance())) {
-                return 2; // Overdraft must be greater than the current balance
+                return OVERDRAFT_EXCEEDS_BALANCE;
             }
 
-            // Check if the account has an overdraft facility
+            // If the account has an overdraft facility, set the new overdraft limit and
+            // return a success code
             if (bank.account instanceof OverdraftBankAccount) {
-                // Change the overdraft successfully
                 ((OverdraftBankAccount) bank.account).setOverdraftLimit(overdraftInt);
-                return 0; // Overdraft changed successfully
+                return OVERDRAFT_UPDATED;
             } else {
-                return 3; // This account does not have an overdraft facility
+                // If the account does not have an overdraft facility, return an error code
+                return OVERDRAFT_NO_FACILITY;
             }
         } else {
-            return 1; // Overdraft must be a positive number
+            // If the overdraft string is not a positive integer, return an error code
+            return OVERDRAFT_INVALID;
         }
     }
 
@@ -537,7 +554,7 @@ public class Model {
         Debug.trace("Model::processStatement");
         if (state.equals(LOGGED_IN)) {
             number = 0;
-            
+
             display1 = "Statement printed.";
             display2 = bank.getStatement();
 
