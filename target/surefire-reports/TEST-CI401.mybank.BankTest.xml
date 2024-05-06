@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="CI401.mybank.BankTest" time="0.027" tests="3" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="CI401.mybank.BankTest" time="0.028" tests="3" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="21"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -15,7 +15,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="GB"/>
     <property name="sun.boot.library.path" value="C:\Users\jakef\.jdks\openjdk-21.0.1\bin"/>
-    <property name="sun.java.command" value="org.apache.maven.surefire.booter.ForkedBooter C:\Users\jakef\AppData\Local\Temp\surefire12999933962862545110 2024-05-02T17-33-40_736-jvmRun1 surefire510273796568204463tmp surefire_016346097451476567749tmp"/>
+    <property name="sun.java.command" value="org.apache.maven.surefire.booter.ForkedBooter C:\Users\jakef\AppData\Local\Temp\surefire3564458261223310138 2024-05-06T22-55-49_407-jvmRun1 surefire10296443576919415616tmp surefire_013030214842665530015tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="C:\Users\jakef\OneDrive\Desktop\atm-test-two\target\test-classes;C:\Users\jakef\.m2\repository\org\openjfx\javafx-controls\22\javafx-controls-22.jar;C:\Users\jakef\.m2\repository\org\openjfx\javafx-graphics\22\javafx-graphics-22.jar;C:\Users\jakef\.m2\repository\org\openjfx\javafx-base\22\javafx-base-22.jar;C:\Users\jakef\.m2\repository\org\openjfx\javafx-fxml\22\javafx-fxml-22.jar;C:\Users\jakef\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.8.1\junit-jupiter-api-5.8.1.jar;C:\Users\jakef\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\jakef\.m2\repository\org\junit\platform\junit-platform-commons\1.8.1\junit-platform-commons-1.8.1.jar;C:\Users\jakef\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\jakef\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.8.1\junit-jupiter-engine-5.8.1.jar;C:\Users\jakef\.m2\repository\org\junit\platform\junit-platform-engine\1.8.1\junit-platform-engine-1.8.1.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -52,7 +52,7 @@
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
     <property name="sun.os.patch.level" value=""/>
     <property name="native.encoding" value="Cp1252"/>
-    <property name="java.library.path" value="C:\Users\jakef\.jdks\openjdk-21.0.1\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files\Eclipse Adoptium\jdk-21.0.2.13-hotspot\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\dotnet\;C:\Program Files\Azure Data Studio\bin;C:\Program Files\Git\cmd;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Users\jakef\AppData\Local\Programs\Python\Python311\Scripts\;C:\Users\jakef\AppData\Local\Programs\Python\Python311\;C:\Users\jakef\AppData\Local\Microsoft\WindowsApps;C:\Users\jakef\AppData\Local\Programs\Microsoft VS Code\bin;C:\ffmpeg\bin;C:\Program Files\Azure Data Studio\bin;%JAVA11_HOME%;;."/>
+    <property name="java.library.path" value="C:\Users\jakef\.jdks\openjdk-21.0.1\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files\Eclipse Adoptium\jdk-11.0.23.9-hotspot\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\dotnet\;C:\Program Files\Azure Data Studio\bin;C:\Program Files\Git\cmd;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Users\jakef\AppData\Local\Programs\Python\Python311\Scripts\;C:\Users\jakef\AppData\Local\Programs\Python\Python311\;C:\Users\jakef\AppData\Local\Microsoft\WindowsApps;C:\Users\jakef\AppData\Local\Programs\Microsoft VS Code\bin;C:\ffmpeg\bin;C:\Program Files\Azure Data Studio\bin;%JAVA11_HOME%;;."/>
     <property name="java.vm.info" value="mixed mode"/>
     <property name="stderr.encoding" value="Cp1252"/>
     <property name="java.vendor" value="Oracle Corporation"/>
@@ -60,7 +60,7 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="65.0"/>
   </properties>
-  <testcase name="testWithdraw_NotLoggedIn" classname="CI401.mybank.BankTest" time="0.014">
+  <testcase name="testWithdraw_NotLoggedIn" classname="CI401.mybank.BankTest" time="0.015">
     <system-out><![CDATA[Bank::<constructor>
 Bank::loadAccounts: Loading accounts from file
 Bank::addBankAccount: Adding bank account 1
@@ -68,7 +68,7 @@ Bank::addBankAccount: added Account:1 Balance: £658
 Bank::addBankAccount: Adding bank account 2
 Bank::addBankAccount: added Account:2 Balance: £3000
 Bank::addBankAccount: Adding bank account 3
-Bank::addBankAccount: added Account:3 Balance: £1464
+Bank::addBankAccount: added Account:3 Balance: £2869
 Bank::addBankAccount: Adding bank account 4
 Bank::addBankAccount: added Account:4 Balance: £398
 Bank::addBankAccount: Adding bank account 5
@@ -88,7 +88,7 @@ Bank::addBankAccount: can't add bank account - too many accounts
 LocalBank::getBalance
 ]]></system-out>
   </testcase>
-  <testcase name="testAddBankAccount_MaxAccountsReached" classname="CI401.mybank.BankTest" time="0.005">
+  <testcase name="testAddBankAccount_MaxAccountsReached" classname="CI401.mybank.BankTest" time="0.007">
     <system-out><![CDATA[Bank::<constructor>
 Bank::loadAccounts: Loading accounts from file
 Bank::addBankAccount: Adding bank account 1
@@ -96,7 +96,7 @@ Bank::addBankAccount: added Account:1 Balance: £658
 Bank::addBankAccount: Adding bank account 2
 Bank::addBankAccount: added Account:2 Balance: £3000
 Bank::addBankAccount: Adding bank account 3
-Bank::addBankAccount: added Account:3 Balance: £1464
+Bank::addBankAccount: added Account:3 Balance: £2869
 Bank::addBankAccount: Adding bank account 4
 Bank::addBankAccount: added Account:4 Balance: £398
 Bank::addBankAccount: Adding bank account 5
@@ -143,7 +143,7 @@ Bank::addBankAccount: added Account:1 Balance: £658
 Bank::addBankAccount: Adding bank account 2
 Bank::addBankAccount: added Account:2 Balance: £3000
 Bank::addBankAccount: Adding bank account 3
-Bank::addBankAccount: added Account:3 Balance: £1464
+Bank::addBankAccount: added Account:3 Balance: £2869
 Bank::addBankAccount: Adding bank account 4
 Bank::addBankAccount: added Account:4 Balance: £398
 Bank::addBankAccount: Adding bank account 5
