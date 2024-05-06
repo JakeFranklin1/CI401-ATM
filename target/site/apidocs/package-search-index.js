@@ -1,1 +1,0 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"m":"com.mybank","l":"CI401.mybank"}];updateSearchResults();
