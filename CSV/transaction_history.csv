@@ -8,3 +8,5 @@ accNumber,transactionType,amount,balance,date,time
 3,withdraw,3000,10464,22/04/24,15:38
 3,transfer,3000,7464,23/04/24,11:52
 2,transfer,3000,3000,23/04/24,11:52
+3,withdraw,7600,-136,04/05/24,08:13
+3,deposit,7000,6864,04/05/24,08:13
