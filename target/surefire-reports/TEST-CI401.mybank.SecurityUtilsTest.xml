@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="CI401.mybank.SecurityUtilsTest" time="1.096" tests="3" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="CI401.mybank.SecurityUtilsTest" time="1.035" tests="3" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="21"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -15,7 +15,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="GB"/>
     <property name="sun.boot.library.path" value="C:\Users\jakef\.jdks\openjdk-21.0.1\bin"/>
-    <property name="sun.java.command" value="org.apache.maven.surefire.booter.ForkedBooter C:\Users\jakef\AppData\Local\Temp\surefire3317651646053757812 2024-04-29T11-58-38_340-jvmRun1 surefire3119005391933279753tmp surefire_015835846295726064548tmp"/>
+    <property name="sun.java.command" value="org.apache.maven.surefire.booter.ForkedBooter C:\Users\jakef\AppData\Local\Temp\surefire12999933962862545110 2024-05-02T17-33-40_736-jvmRun1 surefire510273796568204463tmp surefire_016346097451476567749tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="C:\Users\jakef\OneDrive\Desktop\atm-test-two\target\test-classes;C:\Users\jakef\.m2\repository\org\openjfx\javafx-controls\22\javafx-controls-22.jar;C:\Users\jakef\.m2\repository\org\openjfx\javafx-graphics\22\javafx-graphics-22.jar;C:\Users\jakef\.m2\repository\org\openjfx\javafx-base\22\javafx-base-22.jar;C:\Users\jakef\.m2\repository\org\openjfx\javafx-fxml\22\javafx-fxml-22.jar;C:\Users\jakef\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.8.1\junit-jupiter-api-5.8.1.jar;C:\Users\jakef\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\jakef\.m2\repository\org\junit\platform\junit-platform-commons\1.8.1\junit-platform-commons-1.8.1.jar;C:\Users\jakef\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\jakef\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.8.1\junit-jupiter-engine-5.8.1.jar;C:\Users\jakef\.m2\repository\org\junit\platform\junit-platform-engine\1.8.1\junit-platform-engine-1.8.1.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -52,7 +52,7 @@
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
     <property name="sun.os.patch.level" value=""/>
     <property name="native.encoding" value="Cp1252"/>
-    <property name="java.library.path" value="C:\Users\jakef\.jdks\openjdk-21.0.1\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files\Eclipse Adoptium\jdk-21.0.2.13-hotspot\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\dotnet\;C:\Program Files\Azure Data Studio\bin;C:\Program Files\Git\cmd;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Users\jakef\AppData\Local\Programs\Python\Python311\Scripts\;C:\Users\jakef\AppData\Local\Programs\Python\Python311\;C:\Users\jakef\AppData\Local\Microsoft\WindowsApps;C:\Users\jakef\AppData\Local\Programs\Microsoft VS Code\bin;C:\ffmpeg\bin;;C:\Program Files\Azure Data Studio\bin;."/>
+    <property name="java.library.path" value="C:\Users\jakef\.jdks\openjdk-21.0.1\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files\Eclipse Adoptium\jdk-21.0.2.13-hotspot\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\dotnet\;C:\Program Files\Azure Data Studio\bin;C:\Program Files\Git\cmd;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Users\jakef\AppData\Local\Programs\Python\Python311\Scripts\;C:\Users\jakef\AppData\Local\Programs\Python\Python311\;C:\Users\jakef\AppData\Local\Microsoft\WindowsApps;C:\Users\jakef\AppData\Local\Programs\Microsoft VS Code\bin;C:\ffmpeg\bin;C:\Program Files\Azure Data Studio\bin;%JAVA11_HOME%;;."/>
     <property name="java.vm.info" value="mixed mode"/>
     <property name="stderr.encoding" value="Cp1252"/>
     <property name="java.vendor" value="Oracle Corporation"/>
@@ -60,16 +60,16 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="65.0"/>
   </properties>
-  <testcase name="testCheckPasswordInvalid" classname="CI401.mybank.SecurityUtilsTest" time="0.479">
+  <testcase name="testCheckPasswordInvalid" classname="CI401.mybank.SecurityUtilsTest" time="0.445">
     <system-out><![CDATA[Check password invalid result: false
 ]]></system-out>
   </testcase>
-  <testcase name="testCheckPasswordValid" classname="CI401.mybank.SecurityUtilsTest" time="0.408">
+  <testcase name="testCheckPasswordValid" classname="CI401.mybank.SecurityUtilsTest" time="0.39">
     <system-out><![CDATA[Check password valid result: true
 ]]></system-out>
   </testcase>
-  <testcase name="testHashPassword" classname="CI401.mybank.SecurityUtilsTest" time="0.208">
-    <system-out><![CDATA[Hashed password: $2y$12$yQ0Cd09amMBLEfQBFW/Vgu5Gqqp.YOPrdY9q/A6fd4oKbD7/OpSQy
+  <testcase name="testHashPassword" classname="CI401.mybank.SecurityUtilsTest" time="0.197">
+    <system-out><![CDATA[Hashed password: $2y$12$7reka7cp4lSm0GhG0QQl0eDnzj5YJfc1Kg7E8OYOuZpCBKTmOVSMK
 ]]></system-out>
   </testcase>
 </testsuite>
