@@ -188,7 +188,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button id="keypad-button" fx:id="blankBtn" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="80.0" prefWidth="150.0" styleClass="buttons" stylesheets="@atm.css" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+                  <Button id="keypad-button" fx:id="blankBtn" mnemonicParsing="false" prefHeight="80.0" prefWidth="150.0" styleClass="buttons" stylesheets="@atm.css" GridPane.halignment="CENTER" GridPane.rowIndex="3">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
