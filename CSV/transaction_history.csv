@@ -14,3 +14,7 @@ accNumber,transactionType,amount,balance,date,time
 3,withdraw,15,-101,06/05/24,22:37
 3,withdraw,30,-131,06/05/24,22:55
 3,deposit,3000,2869,06/05/24,22:55
+1,withdraw,32,626,07/05/24,11:54
+4,withdraw,3,395,07/05/24,11:54
+4,withdraw,3,392,07/05/24,11:54
+4,withdraw,3,389,07/05/24,11:54
