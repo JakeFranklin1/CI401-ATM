@@ -24,12 +24,17 @@ public class SecurityUtils {
     }
 
     /**
-     * Checks if the given password matches the hashed password using OpenBSDBCrypt
-     * algorithm.
+     * This method checks if the provided password matches the hashed password.
      *
-     * @param hashedPassword the hashed password to be checked against
-     * @param password       the password to be checked
-     * @return true if the password matches the hashed password, false otherwise
+     * @param hashedPassword The hashed password, typically retrieved from the database. 
+     * This is the hashed version of the original password that was created when the user 
+     * set or last changed their password.
+     * @param password The plaintext password provided by the user trying to authenticate, 
+     * such as during a login attempt.
+     * @return Returns true if the provided password matches the hashed password, false otherwise. 
+     * The method uses OpenBSDBCrypt.checkPassword(), which hashes the provided password in the same way 
+     * as the original password was hashed, then compares the result to the stored hashed password. 
+     * If they match, it means the correct password was provided.
      */
     public static boolean checkPassword(String hashedPassword, String password) {
         return OpenBSDBCrypt.checkPassword(hashedPassword, password.toCharArray());
