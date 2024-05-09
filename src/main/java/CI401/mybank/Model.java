@@ -516,7 +516,7 @@ public class Model {
                 targetAccountNumber = -1;
             } else {
                 // Transfer failed
-                initialise("Transfer failed. Please try again. \nMake sure the");
+                initialise("Transfer failed. Please try again. \nMake sure the target account number is correct, and that there are enough funds in the account.\n");
             }
         } else {
             // User not logged in or in wrong state
