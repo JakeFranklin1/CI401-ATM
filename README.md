@@ -6,4 +6,6 @@ I have provided three different Jar files, ATM_MacOS is to be ran on Macs, other
 
 I'd recommend running the program through the terminal, do this with: java -jar ATM_Windows_Java11.jar
 
-These Jar files should NOT fail as I've tested them extensively on my two systems and on the university computers, but if all of these fail then please follow the guide in the technical documentation (included in the "Report" folder) for setting it up in IntelliJ.
+![image](https://github.com/user-attachments/assets/51eeca30-40cf-4b68-b498-587a137c3b7d)
+
+The passwords in the CSV file are hashed and salted, so use the table above for reference. Some of the accounts have specific limitations/benefits such as limited withdrawals or an overdraft.
